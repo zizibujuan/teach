@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+         point="org.eclipse.equinox.http.registry.httpcontexts">
+         <httpcontext
+            id="com.zizibujuan.teach.client.httpcontext.socket.io">
+	         <resource-mapping
+	               bundle="com.zizibujuan.teach.client.socket.io"
+	               path="/static/socket">
+	         </resource-mapping>
+         </httpcontext>
+    </extension>
+	<extension
+         point="org.eclipse.equinox.http.registry.resources">
+      <resource
+            alias="/socket"
+            httpcontextId="com.zizibujuan.teach.client.httpcontext.socket.io">
+      </resource>
+    </extension>
+</plugin>
