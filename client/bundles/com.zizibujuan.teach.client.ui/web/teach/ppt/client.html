@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>web ppt client</title>
+
+<link rel="stylesheet" href="/reveal/css/theme/night.css">
+<link rel="stylesheet" href="/reveal/css/reveal.min.css">
+
+<script type="text/javascript" src="/jquery/jquery.js"></script>
+<script type="text/javascript" src="/reveal/lib/js/head.min.js"></script>
+<script type="text/javascript" src="/reveal/js/reveal.js"></script>
+<script>
+$(function(){
+
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls: false,
+		progress: true,
+		history: true,
+		center: true,
+
+		theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+		multiplex: {
+	        // Example values. To generate your own, see the socket.io server instructions.
+	        secret: null, // null so the clients do not have control of the master presentation
+	        id: '1ea875674b17ca76', // id, obtained from socket.io server
+	        url: 'localhost:8082' // Location of socket.io server
+	    },
+	    
+		// Parallax scrolling
+		// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+		// parallaxBackgroundSize: '2100px 900px',
+
+		// Optional libraries used to extend on reveal.js
+		dependencies: [
+			{ src: '/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: '/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: '/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: '/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: '/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+			{ src: '/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+		
+			{ src: '/socket/socket.io.js', async: true },
+	        { src: '/reveal/plugin/multiplex/client.js', async: true }
+		]
+	});
+
+
+});
+</script>
+
+</head>
+<body>
+
+<div class="reveal">
+	<div class="slides">
+		<!-- 一个section对应一个ppt页面 -->
+		<section>Single Horizontal Slide</section>
+        <section>
+            <section>Vertical Slide 1</section>
+            <section>Vertical Slide 2</section>
+        </section>
+        <section data-markdown>
+        	## aa
+        </section>
+	</div>
+</div>
+</body>
+
+
+</html>
