@@ -10,6 +10,9 @@
 <script type="text/javascript" src="/jquery/jquery.js"></script>
 <script type="text/javascript" src="/reveal/lib/js/head.min.js"></script>
 <script type="text/javascript" src="/reveal/js/reveal.js"></script>
+
+<script type="text/javascript" src="/ace/ace.js"></script>
+<script type="text/javascript" src="/ace/mode/java.js"></script>
 <script>
 $(function(){
 	
@@ -20,18 +23,24 @@ $(function(){
 	ws.onmessage = function(event){
 		console.log("message");
 		
-		$('#msgBox').append(event.data);  
-	    $('#msgBox').append('</br>');
+		// action
+		
 	}
 	ws.onclose = function(event){
 		console.log("close");
 	}
 
-	$("#btnSend").click(function(e){
-		ws.send("aa");
+	$("#btnPPT").click(function(e){
+		$("#ppt").show();
+		$("#sourceEditor").hide();
 	});
 	
+	$("#btnCode").click(function(e){
+		$("#ppt").hide();
+		$("#sourceEditor").show();
+	});
 	
+	var editor = ace.edit("sourceEditor");
 	
 	// 从服务器端下载ppt内容
 
@@ -77,12 +86,21 @@ $(function(){
 });
 </script>
 
+<style>
+#sourceEditor {
+   position: absolute;
+   width: 500px;
+   height: 400px;
+}
+</style>
 </head>
 <body>
 
-<button id="btnSend">发送测试</button>
-<div id="msgBox"></div>
-<div class="reveal">
+<button id="btnPPT">ppt</button>
+<button id="btnCode">code</button>
+
+<div>
+<div id="ppt" class="reveal">
 	<div class="slides">
 		<!-- 一个section对应一个ppt页面 -->
 		<section>Single Horizontal Slide</section>
@@ -94,6 +112,12 @@ $(function(){
         	## a
         </section>
 	</div>
+</div>
+
+<div id="sourceEditor" style="display: none">
+
+</div>
+
 </div>
 </body>
 
