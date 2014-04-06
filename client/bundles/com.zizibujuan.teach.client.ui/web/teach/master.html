@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>web ppt master</title>
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="/jquery/jquery.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	var ws  = new WebSocket("ws://localhost:8082/teaching");
+	ws.onopen = function(event){
+		console.log("open");
+	}
+	ws.onmessage = function(event){
+		console.log("message");
+		
+		// action
+		
+	}
+	ws.onclose = function(event){
+		console.log("close");
+	}
+
+	$("#btnPPT").click(function(e){
+		$("#frmPPT").show();
+		$("#frmCode").hide();
+	});
+	
+	$("#btnCode").click(function(e){
+		$("#frmPPT").hide();
+		$("#frmCode").show();
+	});
+	
+	
+	
+	// 从服务器端下载ppt内容
+
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	
+
+
+});
+</script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-default" style="margin-bottom: 0px" role="navigation">
+  <div class="container-fluid">
+  
+  	<div class="collapse navbar-collapse">
+  		<ul class="nav navbar-nav">
+  			<button id="btnPPT" class="btn btn-default navbar-btn active">ppt</button>
+  			<button id="btnCode" class="btn btn-default navbar-btn">code</button>
+  		</ul>
+  	</div>
+  </div>
+</nav>
+
+
+<div style="height: 100%">
+<iframe id="frmPPT" style="height: 100%; width: 100%; border: none;" src="ppt.html"></iframe>
+
+<iframe id="frmCode" style="height: 100%; width: 100%; border: none; display: none" src="code.html"></iframe>
+
+</div>
+</body>
+
+
+</html>

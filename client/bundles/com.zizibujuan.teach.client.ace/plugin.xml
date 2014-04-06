@@ -7,7 +7,7 @@
             id="com.zizibujuan.teach.client.httpcontext.ace">
 	         <resource-mapping
 	               bundle="com.zizibujuan.teach.client.ace"
-	               path="/static/ace/lib/ace">
+	               path="/static/ace">
 	         </resource-mapping>
          </httpcontext>
     </extension>
