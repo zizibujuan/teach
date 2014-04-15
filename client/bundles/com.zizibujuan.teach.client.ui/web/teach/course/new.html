@@ -9,7 +9,12 @@
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-
+$(function(){
+	
+	$("#btnCreate").click(function(e){
+		// ajax提交	
+	});
+});
 </script>
 
 </head>
@@ -26,7 +31,7 @@
 				<label for="txtDesc">课程描述</label>
 				<textarea class="form-control" rows="3" id="txtDesc"></textarea>
 			</div>
-			<button type="button" class="btn btn-primary">创建</button>
+			<button id="btnCreate" type="button" class="btn btn-primary">创建</button>
 		</form>
 	</div>
 </div>
