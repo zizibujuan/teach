@@ -1,0 +1,70 @@
+#%RAML 0.8
+title: 课程管理API
+baseUri: http://zizibujuan.com
+version: v1
+/courses:
+  displayName: Courses
+  post:
+    description: 添加课程
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          name:
+            description: 课程名称
+            type: string
+            required: true
+            maxLength: 64
+          description:
+            description: 课程描述
+            type: string
+            required: false
+    responses:
+      201:
+        body:
+          application/json:
+            schema: |
+              {
+                "id": 1              
+              }
+      422:
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "field",
+                "errors": [
+                  {
+                    "field": "name", 
+                    "message": "课程名已被使用"
+                  }
+                ]
+              }
+  /check-name:
+    post:
+      queryParameters:
+        owner:
+          type: string
+          description: 用户名
+      body:
+        application/x-www-form-urlencoded:
+          formParameters:
+            value:
+              description: 课程名
+              type: string
+      responses:
+        200:
+          description: 指定的用户没有使用指定的课程名称
+          body:
+            application/json:
+              schema: |
+                {
+                  "name": "course1"
+                }
+        403:
+          description: 指定的用户已经使用了课程名称
+          body:
+            application/json:
+              schema: |
+                {
+                  "message": "课程名已被使用"
+                }
