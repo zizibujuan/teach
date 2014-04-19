@@ -13,3 +13,6 @@
 [submodule "server/bundles/com.zizibujuan.dbaccess.mysql"]
 	path = server/bundles/com.zizibujuan.dbaccess.mysql
 	url = git@github.com:zizibujuan/dbaccess.mysql.git
+[submodule "client/bundles/com.zizibujuan.drip.client.dojo"]
+	path = client/bundles/com.zizibujuan.drip.client.dojo
+	url = git@github.com:zizibujuan/dojo.git
