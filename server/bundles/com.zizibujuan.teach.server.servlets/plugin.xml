@@ -12,5 +12,10 @@
             load-on-startup="true"
             class="com.zizibujuan.teach.server.servlets.WebSocketInitServlet">
       </servlet>
+      
+      <servlet
+            alias="/courses"
+            class="com.zizibujuan.teach.server.servlets.CourseServlet">
+      </servlet>
     </extension>
 </plugin>

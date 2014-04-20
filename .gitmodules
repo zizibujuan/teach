@@ -16,3 +16,6 @@
 [submodule "client/bundles/com.zizibujuan.drip.client.dojo"]
 	path = client/bundles/com.zizibujuan.drip.client.dojo
 	url = git@github.com:zizibujuan/dojo.git
+[submodule "server/tests/com.zizibujuan.server.test"]
+	path = server/tests/com.zizibujuan.server.test
+	url = git@github.com:zizibujuan/server.test.git
