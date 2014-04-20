@@ -5,5 +5,10 @@ Bundle-SymbolicName: com.zizibujuan.teach.server.service.impl
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.zizibujuan.teach.server.service.impl.Activator
 Bundle-Vendor: zizibujuan.com
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: com.zizibujuan.teach.server.dao,
+ com.zizibujuan.teach.server.model,
+ com.zizibujuan.teach.server.service,
+ org.osgi.framework;version="1.3.0",
+ org.slf4j;version="1.6.4"
+Service-Component: OSGI-INF/*.xml

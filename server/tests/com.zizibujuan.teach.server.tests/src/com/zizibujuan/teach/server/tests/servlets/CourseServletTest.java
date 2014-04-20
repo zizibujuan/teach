@@ -20,13 +20,26 @@ public class CourseServletTest extends AbstractServletTest{
 	
 	@Test
 	public void testAddCourse(){
-		formData.put("name", "课程1");
-		formData.put("description", "课程描述1");
 		
-		xhr.post(URI, formData);
-		Assert.assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
-		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
-		Assert.assertNotNull(returnContent.get("id"));
+		try{
+			
+			loginTestUser();
+			
+			formData.put("name", "课程1");
+			formData.put("description", "课程描述1");
+			
+			xhr.post(URI, formData);
+			Assert.assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
+			Map<String, Object> returnContent = xhr.getContentAsJsonObject();
+			Assert.assertNotNull(returnContent.get("id"));
+		}finally{
+			// 清空测试环境
+			clearTables(Tables.COURSE);
+			logoutTestUser();
+		}
+		
 		
 	}
+
+	
 }

@@ -5,12 +5,17 @@ Bundle-SymbolicName: com.zizibujuan.teach.server.servlets;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.zizibujuan.teach.server.servlets.Activator
 Bundle-Vendor: zizibujuan.com
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.zizibujuan.drip.server.util.servlet,
+ com.zizibujuan.teach.server.model,
+ com.zizibujuan.teach.server.service,
+ com.zizibujuan.useradmin.server.model,
  javax.servlet;version="2.6.0",
  javax.servlet.http;version="2.6.0",
  org.eclipse.core.runtime;version="3.4.0",
  org.eclipse.jetty.util.component;version="8.1.14",
  org.eclipse.jetty.websocket;version="8.1.14",
- org.osgi.framework;version="1.7.0"
+ org.osgi.framework;version="1.7.0",
+ org.slf4j;version="1.6.4"
 Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/*.xml
