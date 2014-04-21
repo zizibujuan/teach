@@ -68,6 +68,24 @@ public class CourseServlet extends BaseServlet{
 			result.put("id", courseId);
 			ResponseUtil.toJSON(req, resp, result, HttpServletResponse.SC_CREATED);
 			return;
+		}else if(path.segmentCount() == 1){
+			String verb = path.segment(0);
+			if(verb.equals("check-name")){
+				Long userId = ((UserInfo)UserSession.getUser(req)).getId();
+				Map<String, Object> map = RequestUtil.fromJsonObject(req);
+				String name = map.get("value").toString();
+				if(courseService.nameIsUsed(userId, name)){
+					Map<String, String> result = new HashMap<>();
+					result.put("message", "课程名已被使用");
+					ResponseUtil.toJSON(req, resp, result, HttpServletResponse.SC_FORBIDDEN);
+				}else{
+					Map<String, String> result = new HashMap<>();
+					result.put("name", name);
+					ResponseUtil.toJSON(req, resp, result);
+				}
+				return;
+			}
+			
 		}
 		super.doPost(req, resp);
 	}

@@ -97,5 +97,24 @@ public class CourseServletTest extends AbstractServletTest{
 		assertEquals("课程名已被使用", error.getMessage());
 	}
 
-	
+	@Test
+	public void testCheckNameUnique(){
+		formData.put("value", "课程1");
+		xhr.post("courses/check-name?owner=" + testUserId, formData);
+		assertEquals(HttpURLConnection.HTTP_OK, xhr.getResponseCode());
+		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
+		assertEquals("课程1", returnContent.get("name"));
+		
+		formData.clear();
+		formData.put("name", "课程1");
+		formData.put("description", "课程描述1");
+		xhr.post(URI, formData);
+		
+		formData.clear();
+		formData.put("value", "课程1");
+		xhr.post("courses/check-name?owner=" + testUserId, formData);
+		assertEquals(HttpURLConnection.HTTP_FORBIDDEN, xhr.getResponseCode());
+		returnContent = xhr.getContentAsJsonObject();
+		assertEquals("课程名已被使用", returnContent.get("message"));
+	}
 }
