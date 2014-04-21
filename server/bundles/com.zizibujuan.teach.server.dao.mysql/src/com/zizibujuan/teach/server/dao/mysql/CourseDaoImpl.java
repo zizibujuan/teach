@@ -39,4 +39,18 @@ public class CourseDaoImpl extends AbstractDao implements CourseDao{
 		});
 	}
 
+	private static final String SQL_CHECK_NAME = "SELECT "
+			+ "1 "
+			+ "FROM "
+			+ "DRIP_COURSE "
+			+ "WHERE "
+			+ "CRT_USER_ID=? AND "
+			+ "COURSE_NAME=? "
+			+ "LIMIT 1";
+	@Override
+	public boolean nameIsUsed(Long userId, String name) {
+		int result = DatabaseUtil.queryForInt(getDataSource(), SQL_CHECK_NAME, userId, name);
+		return result == 1;
+	}
+
 }

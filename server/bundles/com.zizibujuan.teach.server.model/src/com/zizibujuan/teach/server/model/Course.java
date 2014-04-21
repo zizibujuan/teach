@@ -19,8 +19,14 @@ public class Course{
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	/**
+	 * 获取课程名称
+	 * 
+	 * @return 如果name为null，则返回空字符串，如果name前后有空字符串，则去除
+	 */
 	public String getName() {
-		return name;
+		return name == null ? "" : name.trim();
 	}
 	public void setName(String name) {
 		this.name = name;

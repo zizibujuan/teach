@@ -24,6 +24,10 @@ public class CourseServiceImpl implements CourseService{
 		return courseDao.add(userId, course);
 	}
 	
+	@Override
+	public boolean nameIsUsed(Long userId, String name) {
+		return courseDao.nameIsUsed(userId, name);
+	}
 	
 	public void setCourseDao(CourseDao courseDao) {
 		logger.info("注入CourseDao");
