@@ -5,4 +5,4 @@ Bundle-SymbolicName: com.zizibujuan.dbaccess.mysql.config
 Bundle-Version: 0.0.1.qualifier
 Bundle-Vendor: zizibujuan.com
 Fragment-Host: com.zizibujuan.dbaccess.mysql;bundle-version="1.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
