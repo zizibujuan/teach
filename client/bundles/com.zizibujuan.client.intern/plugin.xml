@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension
+         point="org.eclipse.equinox.http.registry.httpcontexts">
+         <httpcontext
+            id="com.zizibujuan.client.httpcontext.intern">
+	         <resource-mapping
+	               bundle="com.zizibujuan.client.intern"
+	               path="/static/node_modules">
+	         </resource-mapping>
+         </httpcontext>
+    </extension>
+	<extension
+         point="org.eclipse.equinox.http.registry.resources">
+      <resource
+            alias="/node_modules"
+            httpcontextId="com.zizibujuan.client.httpcontext.intern">
+      </resource>
+     </extension>
+</plugin>
