@@ -7,7 +7,7 @@
             id="com.zizibujuan.client.httpcontext.fontawesome">
 	         <resource-mapping
 	               bundle="com.zizibujuan.client.fontawesome"
-	               path="/staitc/fontawesome">
+	               path="/static/fontawesome">
 	         </resource-mapping>
          </httpcontext>
     </extension>
