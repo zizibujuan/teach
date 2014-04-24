@@ -1,7 +1,9 @@
 define(["dojo/_base/declare",
         "dojo/_base/lang",
         "dojo/on",
+        "dojo/json",
         "dojo/dom-form",
+        "dojo/dom-attr",
         "dojo/request/xhr",
         "dijit/_WidgetBase", 
         "dijit/_TemplatedMixin",
@@ -12,7 +14,9 @@ define(["dojo/_base/declare",
 		declare,
 		lang,
 		on,
+		JSON,
 		domForm,
+		domAttr,
 		xhr,
 		_WidgetBase,
 		_TemplatedMixin,
@@ -53,16 +57,26 @@ define(["dojo/_base/declare",
 		},
 		
 		_checkNameUnique: function(value, constraints){
+			if(value == ""){
+				domAttr.set(this.btnCreate, "disabled", true);
+				return true;
+			}
+			
+			var data = {value: value};
+			
+			var serverIsValid = true;
 			xhr.post(this.checkNameUrl + "?owner=" + this.userId, {
 				handleAs: "json",
+				data: JSON.stringify(data),
 				sync: true
 			}).then(lang.hitch(this, function(data){
-				
-				return true;
+				domAttr.set(this.btnCreate, "disabled", false);
+				serverIsValid = true;
 			}), lang.hitch(this, function(error){
-				
-				return false;
+				domAttr.set(this.btnCreate, "disabled", true);
+				serverIsValid = false;
 			}));
+			return serverIsValid;
 		}
 	});
 });
