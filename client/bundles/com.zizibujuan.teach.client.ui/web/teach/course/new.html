@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <title>创建课程</title>
 
-<link rel="stylesheet" type="text/css" href="/drip/resources/index.css" />
-<link type="text/css" rel="stylesheet" href="/drip/resources/font-awesome/css/font-awesome.css" />
+<link type="text/css" rel="stylesheet" href="/dojo/resources/dojo.css" />
+<link type="text/css" rel="stylesheet" href="/dijit/themes/claro/claro.css" />
+<link type="text/css" rel="stylesheet" href="/fontawesome/css/font-awesome.css" />
 
 <script type="text/javascript" 
 	data-dojo-config="
@@ -15,26 +16,27 @@
 	src="/dojo/dojo.js"></script>
 	
 <script type="text/javascript">
-	require(["drip/index", "drip/browserSupport"]);
+	require(["useradmin/user",
+	         "teach/course/CourseNewForm", 
+	         "dojo/domReady!"], function(
+	        		 user,
+	        		 CourseNewForm){
+		user.getLoggedUserInfo().then(function(userInfo){
+			var courseNewForm = new CourseNewForm({
+				userId: userInfo.id
+			});
+			courseNewForm.placeAt("courseForm");
+			courseNewForm.startup();
+		});
+		
+	});
 </script>
 
 </head>
-<body>
+<body class="claro">
 
-<div class="panel panel-default">
-  <div class="panel-body">
-		<form role="form">
-			<div class="form-group">
-				<label for="txtCourseName">课程名称</label>
-				<input class="form-control" id="txtCourseName">
-			</div>
-			<div class="form-group">
-				<label for="txtDesc">课程描述</label>
-				<textarea class="form-control" rows="3" id="txtDesc"></textarea>
-			</div>
-			<button id="btnCreate" type="button" class="btn btn-primary">创建</button>
-		</form>
-	</div>
+<div>
+  <div id="courseForm"></div>
 </div>
 
 </body>

@@ -1,3 +1,3 @@
 define([
-	//"./LinearLayout1",
+	"./CourseNewForm"
 ]);
