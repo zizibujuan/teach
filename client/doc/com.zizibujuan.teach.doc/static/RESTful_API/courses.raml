@@ -1,11 +1,11 @@
 #%RAML 0.8
 title: 课程管理API
 baseUri: http://zizibujuan.com
-version: v1
+version: v0.1
 /courses:
   displayName: Courses
   post:
-    description: 添加课程
+    description: 登录用户添加课程
     body:
       application/x-www-form-urlencoded:
         formParameters:
@@ -20,6 +20,7 @@ version: v1
             required: false
     responses:
       201:
+        description: 登录用户添加课程成功
         body:
           application/json:
             schema: |
@@ -27,6 +28,7 @@ version: v1
                 "id": 1              
               }
       412:
+        description: 登录用户已使用课程名称
         body:
           application/json:
             schema: |
@@ -53,7 +55,7 @@ version: v1
               type: string
       responses:
         200:
-          description: 指定的用户没有使用指定的课程名称
+          description: 登录用户没有使用指定的课程名称
           body:
             application/json:
               schema: |
@@ -61,7 +63,7 @@ version: v1
                   "name": "course1"
                 }
         403:
-          description: 指定的用户已经使用了课程名称
+          description: 登录用户已经使用了课程名称
           body:
             application/json:
               schema: |
