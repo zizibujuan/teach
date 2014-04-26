@@ -9,7 +9,7 @@ import com.zizibujuan.teach.server.tests.servlets.LessonServletTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	/*CourseServletTest.class,*/
+	CourseServletTest.class,
 	LessonServletTest.class
 })
 public class AllServerTests {
