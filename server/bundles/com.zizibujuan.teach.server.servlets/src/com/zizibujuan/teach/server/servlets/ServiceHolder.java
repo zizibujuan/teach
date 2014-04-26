@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.zizibujuan.teach.server.service.CourseService;
+import com.zizibujuan.teach.server.service.LessonService;
 
 
 /**
@@ -45,5 +46,23 @@ public class ServiceHolder {
 	}
 	public CourseService getCourseService() {
 		return this.courseService;
+	}
+
+	private LessonService lessonService;
+
+	public void setLessonService(LessonService lessonService) {
+		logger.info("注入LessonService");
+		this.lessonService = lessonService;
+	}
+
+	public void unsetLessonService(LessonService lessonService) {
+		logger.info("注销LessonService");
+		if (this.lessonService == lessonService) {
+			this.lessonService = null;
+		}
+	}
+	
+	public LessonService getLessonService() {
+		return lessonService;
 	}
 }

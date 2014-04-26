@@ -26,7 +26,7 @@ public class CourseDaoImpl extends AbstractDao implements CourseDao{
 			+ "VALUES "
 			+ "(?, ?, now(), ?)";
 	@Override
-	public Long add(final Long userId, final Course course) {
+	public Long add(Long userId, Course course) {
 		return DatabaseUtil.insert(getDataSource(), SQL_INSERT_COURSE, new PreparedStatementSetter(){
 
 			@Override

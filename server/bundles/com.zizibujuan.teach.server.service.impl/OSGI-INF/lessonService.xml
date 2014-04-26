@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" 
+	name="com.zizibujuan.teach.server.service.impl.lessonServiceImpl">
+   <implementation class="com.zizibujuan.teach.server.service.impl.LessonServiceImpl"/>
+   <reference 
+   		bind="setLessonDao" 
+   		unbind="unsetLessonDao" 
+   		cardinality="0..1" 
+   		interface="com.zizibujuan.teach.server.dao.LessonDao" 
+   		name="lessonDao" 
+   		policy="dynamic"/>
+   
+   <service>
+      <provide interface="com.zizibujuan.teach.server.service.LessonService"/>
+   </service>
+</scr:component>
