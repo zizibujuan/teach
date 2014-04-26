@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import com.zizibujuan.drip.server.util.servlet.validate.ErrorMessage;
 import com.zizibujuan.drip.server.util.servlet.validate.FieldError;
-import com.zizibujuan.server.test.servlet.AbstractServletTest;
+import com.zizibujuan.server.test.servlet.AuthorizedUserServlet;
 
 /**
  * 课程管理
@@ -21,7 +21,7 @@ import com.zizibujuan.server.test.servlet.AbstractServletTest;
  * @author jzw
  * @since 0.0.1
  */
-public class CourseServletTest extends AbstractServletTest{
+public class CourseServletTest extends AuthorizedUserServlet{
 
 	private static final String URI = "courses";
 	

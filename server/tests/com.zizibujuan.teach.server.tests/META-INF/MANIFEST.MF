@@ -1,12 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: teach.server.tests
-Bundle-SymbolicName: com.zizibujuan.teach.server.tests
+Bundle-SymbolicName: com.zizibujuan.teach.server.tests;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.zizibujuan.teach.server.tests.Activator
 Bundle-Vendor: zizibujuan.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.zizibujuan.drip.server.util.json,
+Import-Package: com.zizibujuan.drip.server.restful,
+ com.zizibujuan.drip.server.util.json,
  com.zizibujuan.drip.server.util.servlet.validate,
  com.zizibujuan.server.test.servlet,
  org.apache.commons.io;version="2.4.0",

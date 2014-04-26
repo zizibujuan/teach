@@ -9,4 +9,5 @@ package com.zizibujuan.teach.server.tests.servlets;
 public abstract class Tables {
 
 	public static final String COURSE = "DRIP_COURSE";
+	public static final String LESSON = "DRIP_LESSON";
 }
