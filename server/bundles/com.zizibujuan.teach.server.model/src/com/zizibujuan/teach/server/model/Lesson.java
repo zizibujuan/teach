@@ -8,8 +8,17 @@ package com.zizibujuan.teach.server.model;
  */
 public class Lesson{
 
+	private Long id; // 课时id
 	private Long courseId;
 	private String name;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public Long getCourseId() {
 		return courseId;

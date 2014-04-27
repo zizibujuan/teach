@@ -1,5 +1,7 @@
 package com.zizibujuan.teach.server.service;
 
+import java.util.List;
+
 import com.zizibujuan.teach.server.model.Lesson;
 
 /**
@@ -27,5 +29,13 @@ public interface LessonService {
 	 * @return 如果已使用则返回<code>true</code>;否则返回<code>false</code>
 	 */
 	boolean nameIsUsed(Long courseId, String lessonName);
+
+	/**
+	 * 查询课程下的所有课时
+	 * 
+	 * @param courseId 课程标识
+	 * @return 课时列表，如果没有则返回空列表。
+	 */
+	List<Lesson> get(Long courseId);
 
 }

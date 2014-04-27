@@ -2,6 +2,7 @@ package com.zizibujuan.teach.server.servlets;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -140,6 +141,26 @@ public class CourseServlet extends BaseServlet{
 		}
 		super.doPost(req, resp);
 	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		traceRequest(req);
+		IPath path = getPath(req);
+		if(path.segmentCount() == 2){
+			Long courseId = Long.valueOf(path.segment(0));
+			String res = path.segment(1);
+			if(res.equals("lessons")){
+				List<Lesson> result = lessonService.get(courseId);
+				ResponseUtil.toJSON(req, resp, result);
+				return;
+			}
+			
+		}
+		super.doGet(req, resp);
+	}
+	
+	
 
 	
 }

@@ -1,5 +1,7 @@
 package com.zizibujuan.teach.server.service.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +27,11 @@ public class LessonServiceImpl implements LessonService {
 	@Override
 	public boolean nameIsUsed(Long courseId, String lessonName) {
 		return lessonDao.nameIsUsed(courseId, lessonName);
+	}
+	
+	@Override
+	public List<Lesson> get(Long courseId) {
+		return lessonDao.get(courseId);
 	}
 	
 	public void setLessonDao(LessonDao lessonDao) {

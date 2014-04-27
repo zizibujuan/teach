@@ -123,4 +123,22 @@ public class LessonServletTest extends AuthorizedUserServlet{
 		returnContent = xhr.getContentAsJsonObject();
 		assertEquals("名称已被使用", returnContent.get("message"));
 	}
+	
+	@Test
+	public void testGetLessons(){
+		formData.put("name", "lesson1");
+		xhr.post("courses/" + courseId + "/" + URI, formData);
+		
+		xhr.get("courses/" + courseId + "/" + URI);
+		assertEquals(HttpURLConnection.HTTP_OK, xhr.getResponseCode());
+		assertEquals(1, xhr.getContentAsJsonArray().size());
+		
+		formData.clear();
+		formData.put("name", "lesson2");
+		xhr.post("courses/" + courseId + "/" + URI, formData);
+		
+		xhr.get("courses/" + courseId + "/" + URI);
+		assertEquals(HttpURLConnection.HTTP_OK, xhr.getResponseCode());
+		assertEquals(2, xhr.getContentAsJsonArray().size());
+	}
 }
