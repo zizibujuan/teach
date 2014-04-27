@@ -22,10 +22,10 @@ public interface CourseService {
 	 * 判断用户是否已使用这个课程名称
 	 * 
 	 * @param userId 用户标识
-	 * @param name 课程名称
+	 * @param courseName 课程名称
 	 * @return 如果已使用则返回<code>true</code>;否则返回<code>false</code>
 	 */
-	boolean nameIsUsed(Long userId, String name);
+	boolean nameIsUsed(Long userId, String courseName);
 	
 	// 如果是更新，则把更新前的信息也传递过来
 

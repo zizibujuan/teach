@@ -98,7 +98,7 @@ public class CourseServletTest extends AuthorizedUserServlet{
 	}
 
 	@Test
-	public void testCheckNameUnique(){
+	public void testCheckCourseNameUnique(){
 		formData.put("value", "课程1");
 		xhr.post("courses/check-name?owner=" + testUserId, formData);
 		assertEquals(HttpURLConnection.HTTP_OK, xhr.getResponseCode());

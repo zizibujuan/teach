@@ -16,7 +16,9 @@ import com.zizibujuan.drip.server.util.servlet.ResponseUtil;
 import com.zizibujuan.drip.server.util.servlet.UserSession;
 import com.zizibujuan.drip.server.util.servlet.validate.Validator;
 import com.zizibujuan.teach.server.model.Course;
+import com.zizibujuan.teach.server.model.Lesson;
 import com.zizibujuan.teach.server.service.CourseService;
+import com.zizibujuan.teach.server.service.LessonService;
 import com.zizibujuan.useradmin.server.model.UserInfo;
 
 /**
@@ -30,9 +32,11 @@ public class CourseServlet extends BaseServlet{
 	private static final long serialVersionUID = 5459471541414091792L;
 
 	private CourseService courseService;
+	private LessonService lessonService;
 	
 	public CourseServlet(){
 		courseService = ServiceHolder.getDefault().getCourseService();
+		lessonService = ServiceHolder.getDefault().getLessonService();
 	}
 	
 	/**
@@ -84,6 +88,53 @@ public class CourseServlet extends BaseServlet{
 					ResponseUtil.toJSON(req, resp, result);
 				}
 				return;
+			}
+		}else if(path.segmentCount() == 2){
+			String res = path.segment(1);
+			if(res.equals("lessons")){
+				Long courseId = Long.valueOf(path.segment(0));
+				Long userId = ((UserInfo)UserSession.getUser(req)).getId();
+				Lesson lesson = RequestUtil.fromJsonObject(req, Lesson.class);
+				
+				Validator validator = new Validator();
+				String name = lesson.getName();
+				if(name.isEmpty()){
+					validator.addFieldError("name", "名称不能为空");
+				}else if(name.length() > 32){
+					validator.addFieldError("name", "名称最多32个字");
+				}else if(lessonService.nameIsUsed(courseId, name)){
+					validator.addFieldError("name", "名称已被使用");
+				}if(validator.hasErrors()){
+					ResponseUtil.toJSON(req, resp, validator.getFieldErrors(), HttpServletResponse.SC_PRECONDITION_FAILED);
+					return;
+				}
+				
+				lesson.setCourseId(courseId);
+				Long lessonId = lessonService.add(userId, lesson);
+				Map<String, Object> result = new HashMap<String, Object>();
+				result.put("id", lessonId);
+				ResponseUtil.toJSON(req, resp, result, HttpServletResponse.SC_CREATED);
+				return;
+			}
+		}else if(path.segmentCount() == 3){
+			Long courseId = Long.valueOf(path.segment(0));
+			String res = path.segment(1);
+			String verb = path.segment(2);
+			if(res.equals("lessons")){
+				if(verb.equals("check-name")){
+					Map<String, Object> map = RequestUtil.fromJsonObject(req);
+					String name = map.get("value").toString();
+					if(lessonService.nameIsUsed(courseId, name)){
+						Map<String, String> result = new HashMap<>();
+						result.put("message", "名称已被使用");
+						ResponseUtil.toJSON(req, resp, result, HttpServletResponse.SC_FORBIDDEN);
+					}else{
+						Map<String, String> result = new HashMap<>();
+						result.put("name", name);
+						ResponseUtil.toJSON(req, resp, result);
+					}
+					return;
+				}
 			}
 			
 		}

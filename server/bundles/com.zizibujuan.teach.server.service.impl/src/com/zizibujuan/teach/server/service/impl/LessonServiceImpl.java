@@ -22,6 +22,11 @@ public class LessonServiceImpl implements LessonService {
 		return lessonDao.add(userId, lesson);
 	}
 
+	@Override
+	public boolean nameIsUsed(Long courseId, String lessonName) {
+		return lessonDao.nameIsUsed(courseId, lessonName);
+	}
+	
 	public void setLessonDao(LessonDao lessonDao) {
 		logger.info("注入LessonDao");
 		this.lessonDao = lessonDao;
@@ -33,4 +38,5 @@ public class LessonServiceImpl implements LessonService {
 			this.lessonDao = null;
 		}
 	}
+
 }

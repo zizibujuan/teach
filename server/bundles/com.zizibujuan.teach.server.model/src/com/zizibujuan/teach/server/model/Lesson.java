@@ -20,7 +20,7 @@ public class Lesson{
 	}
 
 	public String getName() {
-		return name;
+		return name == null ? "" : name.trim();
 	}
 
 	public void setName(String name) {

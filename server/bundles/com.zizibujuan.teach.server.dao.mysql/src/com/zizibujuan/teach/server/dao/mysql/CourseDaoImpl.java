@@ -39,7 +39,7 @@ public class CourseDaoImpl extends AbstractDao implements CourseDao{
 		});
 	}
 
-	private static final String SQL_CHECK_NAME = "SELECT "
+	private static final String SQL_CHECK_COURSE_NAME = "SELECT "
 			+ "1 "
 			+ "FROM "
 			+ "DRIP_COURSE "
@@ -48,8 +48,8 @@ public class CourseDaoImpl extends AbstractDao implements CourseDao{
 			+ "COURSE_NAME=? "
 			+ "LIMIT 1";
 	@Override
-	public boolean nameIsUsed(Long userId, String name) {
-		int result = DatabaseUtil.queryForInt(getDataSource(), SQL_CHECK_NAME, userId, name);
+	public boolean nameIsUsed(Long userId, String courseName) {
+		int result = DatabaseUtil.queryForInt(getDataSource(), SQL_CHECK_COURSE_NAME, userId, courseName);
 		return result == 1;
 	}
 

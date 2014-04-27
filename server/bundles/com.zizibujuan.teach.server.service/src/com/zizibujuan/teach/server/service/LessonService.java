@@ -18,5 +18,14 @@ public interface LessonService {
 	 * @return 课时标识
 	 */
 	Long add(Long userId, Lesson lesson);
+	
+	/**
+	 * 判断课程下的课时名称是否已被使用
+	 * 
+	 * @param courseId 课程标识
+	 * @param lessonName 课程名称
+	 * @return 如果已使用则返回<code>true</code>;否则返回<code>false</code>
+	 */
+	boolean nameIsUsed(Long courseId, String lessonName);
 
 }

@@ -25,8 +25,8 @@ public class CourseServiceImpl implements CourseService{
 	}
 	
 	@Override
-	public boolean nameIsUsed(Long userId, String name) {
-		return courseDao.nameIsUsed(userId, name);
+	public boolean nameIsUsed(Long userId, String courseName) {
+		return courseDao.nameIsUsed(userId, courseName);
 	}
 	
 	public void setCourseDao(CourseDao courseDao) {

@@ -32,5 +32,19 @@ public class LessonDaoImpl extends AbstractDao implements LessonDao {
 			
 		});
 	}
+	
+	private static final String SQL_CHECK_LESSON_NAME = "SELECT "
+			+ "1 "
+			+ "FROM "
+			+ "DRIP_LESSON "
+			+ "WHERE "
+			+ "COURSE_ID=? AND "
+			+ "TITLE=? "
+			+ "LIMIT 1";
+	@Override
+	public boolean nameIsUsed(Long courseId, String lessonName) {
+		int result = DatabaseUtil.queryForInt(getDataSource(), SQL_CHECK_LESSON_NAME, courseId, lessonName);
+		return result == 1;
+	}
 
 }
