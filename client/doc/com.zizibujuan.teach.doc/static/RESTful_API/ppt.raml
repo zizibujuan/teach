@@ -1,0 +1,68 @@
+#%RAML 0.8
+title: 演示文档管理API
+baseUri: http://zizibujuan.com
+version: v0.1
+/courses/{courseId}/lessons/{lessonId}/ppt:
+  uriParameters:
+    courseId:
+      description: 课程标识
+      type: string
+      required: true
+    lessonId:
+      description: 课时标识
+      type: string
+      required: true
+  post:
+    description: | 
+      新增演示文档, 所有的演示文档都保存在git仓库中，便于跟踪用户修改记录。
+      一个课程对应一个git仓库。为了避免出现只创建课程，但是没有添加课时，出现很多
+      空的git仓库，采用延迟创建git仓库的策略，即只有往git仓库中添加内容时，
+      才判断git仓库是否存在，如果不存在则先创建git仓库。
+      一个课时有且只有一个ppt文档。
+      git仓库的目录结构为：
+      courseId
+        res
+          images
+          video
+          audio
+        lessonId
+          ppt
+            ppt1.md
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          content:
+            description: 演示文档的内容，使用markdown格式，一个课时的所有ppt内容存在一个markdown文件里
+            type: string
+    responses:
+      200:
+        description: 演示文档保存成功，不返回任何值。
+      500:
+        description: 演示文档创建失败。可能是git仓库创建失败，也可能是ppt创建失败
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "servlet",
+                "errors": ["错误信息1"]
+              }
+  put:
+    description: 更新演示文档
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          content:
+            description: 演示文档的内容，使用markdown格式，一个课时的所有ppt内容存在一个markdown文件里
+            type: string
+    responses:
+      200:
+        description: 演示文档更新成功，不返回任何值。
+      500:
+        description: 演示文档更新失败。
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "servlet",
+                "errors": ["错误信息1"]
+              }    
