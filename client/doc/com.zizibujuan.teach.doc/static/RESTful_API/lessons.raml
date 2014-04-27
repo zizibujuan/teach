@@ -2,11 +2,11 @@
 title: 课时管理API
 baseUri: http://zizibujuan.com
 version: v0.1
-/{courseId}/lessons:
+/courses/{courseId}/lessons:
   uriParameters:
     courseId:
       description: 课程标识
-      type: string
+      type: integer
       required: true
   displayName: Lessons
   post:
@@ -43,10 +43,6 @@ version: v0.1
               }
   /check-name:
     post:
-      queryParameters:
-        owner:
-          type: string
-          description: 用户标识
       body:
         application/x-www-form-urlencoded:
           formParameters:
