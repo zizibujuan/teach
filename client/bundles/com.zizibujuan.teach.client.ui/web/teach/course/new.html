@@ -16,20 +16,20 @@
 	src="/dojo/dojo.js"></script>
 	
 <script type="text/javascript">
-	require(["useradmin/user",
-	         "teach/course/CourseNewForm", 
-	         "dojo/domReady!"], function(
-	        		 user,
-	        		 CourseNewForm){
-		user.getLoggedUserInfo().then(function(userInfo){
-			var courseNewForm = new CourseNewForm({
-				userId: userInfo.id
-			});
-			courseNewForm.placeAt("courseForm");
-			courseNewForm.startup();
+require(["useradmin/user",
+         "teach/course/CourseNewForm", 
+         "dojo/domReady!"], function(
+        		 user,
+        		 CourseNewForm){
+	user.getLoggedUserInfo().then(function(userInfo){
+		var courseNewForm = new CourseNewForm({
+			userId: userInfo.id
 		});
-		
+		courseNewForm.placeAt("courseForm");
+		courseNewForm.startup();
 	});
+	
+});
 </script>
 
 </head>

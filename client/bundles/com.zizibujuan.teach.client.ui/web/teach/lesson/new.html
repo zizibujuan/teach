@@ -4,16 +4,33 @@
 <meta charset="UTF-8">
 <title>添加课时</title>
 
-<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-<script type="text/javascript" src="/jquery/jquery.js"></script>
-<script src="/bootstrap/js/bootstrap.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/dojo/resources/dojo.css" />
+<link type="text/css" rel="stylesheet" href="/dijit/themes/claro/claro.css" />
+<link type="text/css" rel="stylesheet" href="/fontawesome/css/font-awesome.css" />
 
+<script type="text/javascript" 
+	data-dojo-config="
+		async:true,
+		parseOnLoad:false,
+		isDebug:true" 
+	src="/dojo/dojo.js"></script>
+	
 <script type="text/javascript">
-
+require(["useradmin/user",
+         "teach/lesson/Lesson",
+         "dojo/domReady!"], function(){
+	var lesson = new Lesson();
+	lesson.placeAt("lessonDiv");
+	lesson.startup();
+});
 </script>
 
 </head>
 <body>
+
+<div>
+	<div id="lessonDiv"></div>
+</div>
 
 <div>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lessonModal">
