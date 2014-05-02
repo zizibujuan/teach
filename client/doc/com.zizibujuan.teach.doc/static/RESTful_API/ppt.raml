@@ -26,13 +26,16 @@ version: v0.1
           video
           audio
         lessonId
-          ppt
-            ppt1.md
+            ppt.md
+      ppt.md是一个约定的名称，所有的ppt文件都叫这个名字。
     body:
       application/x-www-form-urlencoded:
         formParameters:
           content:
             description: 演示文档的内容，使用markdown格式，一个课时的所有ppt内容存在一个markdown文件里
+            type: string
+          commitMessage:
+            description: 提交内容说明
             type: string
     responses:
       201:
@@ -53,6 +56,9 @@ version: v0.1
         formParameters:
           content:
             description: 演示文档的内容，使用markdown格式，一个课时的所有ppt内容存在一个markdown文件里
+            type: string
+          commitMessage:
+            description: 提交内容说明
             type: string
     responses:
       200:
