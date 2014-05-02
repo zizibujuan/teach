@@ -96,4 +96,16 @@ public class PPTServletTest extends AuthorizedUserServlet{
 		xhr.post("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
 		assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
 	}
+	
+	@Test
+	public void testGetPPT(){
+		formData.put("commitMessage", "commit1");
+		formData.put("content", "content1");
+		xhr.post("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
+		
+		xhr.get("courses/" + courseId + "/lessons/" + lessonId + "/ppt");
+		assertEquals(HttpURLConnection.HTTP_OK, xhr.getResponseCode());
+		Map<String, Object> map = xhr.getContentAsJsonObject();
+		assertEquals("content1", map.get("content").toString());
+	}
 }

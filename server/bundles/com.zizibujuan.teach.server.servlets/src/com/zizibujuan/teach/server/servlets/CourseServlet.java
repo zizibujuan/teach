@@ -165,7 +165,8 @@ public class CourseServlet extends BaseServlet{
 			throws ServletException, IOException {
 		traceRequest(req);
 		IPath path = getPath(req);
-		if(path.segmentCount() == 2){
+		int segmentCount = path.segmentCount();
+		if(segmentCount == 2){
 			Long courseId = Long.valueOf(path.segment(0));
 			String res = path.segment(1);
 			if(res.equals("lessons")){
@@ -173,8 +174,22 @@ public class CourseServlet extends BaseServlet{
 				ResponseUtil.toJSON(req, resp, result);
 				return;
 			}
-			
 		}
+		
+		if(segmentCount == 4){
+			Long courseId = Long.valueOf(path.segment(0));
+			Long lessonId = Long.valueOf(path.segment(2));
+			String resLesson = path.segment(1);
+			String resPPT = path.segment(3);
+			if(resLesson.equals("lessons") && resPPT.equals("ppt")){
+				String content = pptService.getContent(courseId, lessonId);
+				Map<String, Object> result = new HashMap<String, Object>();
+				result.put("content", content);
+				ResponseUtil.toJSON(req, resp, result);
+				return;
+			}
+		}
+		
 		super.doGet(req, resp);
 	}
 	

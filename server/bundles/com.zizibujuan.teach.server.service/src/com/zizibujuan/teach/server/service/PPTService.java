@@ -36,4 +36,13 @@ public interface PPTService {
 	 */
 	void add(Long userId, Long courseId, Long lessonId, String pptContent, String commitMessage);
 
+	/**
+	 * 获取ppt内容
+	 * 
+	 * @param courseId 课程标识
+	 * @param lessonId 课时标识
+	 * @return ppt内容，如果没有找到ppt文件，则返回空字符串
+	 */
+	String getContent(Long courseId, Long lessonId);
+
 }
