@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import com.zizibujuan.teach.server.service.CourseService;
 import com.zizibujuan.teach.server.service.LessonService;
+import com.zizibujuan.teach.server.service.PPTService;
 
 
 /**
@@ -64,5 +65,23 @@ public class ServiceHolder {
 	
 	public LessonService getLessonService() {
 		return lessonService;
+	}
+
+	
+	private PPTService pptService;
+
+	public void setPPTService(PPTService pptService) {
+		logger.info("注入PPTService");
+		this.pptService = pptService;
+	}
+
+	public void unsetPPTService(PPTService pptService) {
+		logger.info("注销PPTService");
+		if (this.pptService == pptService) {
+			this.pptService = null;
+		}
+	}
+	public PPTService getPPTService() {
+		return pptService;
 	}
 }

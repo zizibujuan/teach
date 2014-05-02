@@ -6,10 +6,14 @@ Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.zizibujuan.teach.server.tests.Activator
 Bundle-Vendor: zizibujuan.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.zizibujuan.drip.server.restful,
+Import-Package: com.zizibujuan.cm.server.service,
+ com.zizibujuan.cm.server.servlets,
+ com.zizibujuan.drip.server.restful,
  com.zizibujuan.drip.server.util.json,
  com.zizibujuan.drip.server.util.servlet.validate,
+ com.zizibujuan.server.git,
  com.zizibujuan.server.test.servlet,
+ com.zizibujuan.teach.server.service,
  org.apache.commons.io;version="2.4.0",
  org.apache.commons.lang3,
  org.osgi.framework;version="1.3.0"

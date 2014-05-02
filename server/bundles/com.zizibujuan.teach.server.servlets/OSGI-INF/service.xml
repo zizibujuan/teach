@@ -21,4 +21,12 @@
 		interface="com.zizibujuan.teach.server.service.LessonService" 
 		name="lessonService" 
 		policy="dynamic" />
+		
+	<reference 
+		bind="setPPTService" 
+		unbind="unsetPPTService" 
+		cardinality="0..1" 
+		interface="com.zizibujuan.teach.server.service.PPTService" 
+		name="pptService" 
+		policy="dynamic" />
 </scr:component>

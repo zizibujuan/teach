@@ -20,6 +20,7 @@ import com.zizibujuan.teach.server.model.Course;
 import com.zizibujuan.teach.server.model.Lesson;
 import com.zizibujuan.teach.server.service.CourseService;
 import com.zizibujuan.teach.server.service.LessonService;
+import com.zizibujuan.teach.server.service.PPTService;
 import com.zizibujuan.useradmin.server.model.UserInfo;
 
 /**
@@ -34,10 +35,12 @@ public class CourseServlet extends BaseServlet{
 
 	private CourseService courseService;
 	private LessonService lessonService;
+	private PPTService pptService;
 	
 	public CourseServlet(){
 		courseService = ServiceHolder.getDefault().getCourseService();
 		lessonService = ServiceHolder.getDefault().getLessonService();
+		pptService = ServiceHolder.getDefault().getPPTService();
 	}
 	
 	/**
@@ -136,6 +139,21 @@ public class CourseServlet extends BaseServlet{
 					}
 					return;
 				}
+			}
+			
+		}else if(path.segmentCount() == 4){
+			Long userId = ((UserInfo)UserSession.getUser(req)).getId();
+			Long courseId = Long.valueOf(path.segment(0));
+			Long lessonId = Long.valueOf(path.segment(2));
+			String resLesson = path.segment(1);
+			String resPPT = path.segment(3);
+			if(resLesson.equals("lessons") && resPPT.equals("ppt")){
+				Map<String, Object> pptMap = RequestUtil.fromJsonObject(req);
+				String content = pptMap.get("content").toString();
+				String commitMessage = pptMap.get("commitMessage").toString();
+				pptService.add(userId, courseId, lessonId, content, commitMessage);
+				ResponseUtil.toJSON(req, resp, null, HttpServletResponse.SC_CREATED);
+				return;
 			}
 			
 		}
