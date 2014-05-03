@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: teach.server.servlets
-Bundle-SymbolicName: com.zizibujuan.teach.server.servlets;singleton:=true
+Bundle-SymbolicName: com.zizibujuan.teach.server.servlets
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.zizibujuan.teach.server.servlets.Activator
 Bundle-Vendor: zizibujuan.com
@@ -20,3 +20,4 @@ Import-Package: com.zizibujuan.drip.server.util.servlet,
  org.slf4j;version="1.6.4"
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/*.xml
+Export-Package: com.zizibujuan.teach.server.servlets
