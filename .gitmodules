@@ -22,3 +22,6 @@
 [submodule "server/bundles/com.zizibujuan.server.git"]
 	path = server/bundles/com.zizibujuan.server.git
 	url = git@github.com:zizibujuan/server.jgit.git
+[submodule "client/bundles/com.zizibujuan.client.common"]
+	path = client/bundles/com.zizibujuan.client.common
+	url = git@github.com:zizibujuan/client.common.git
