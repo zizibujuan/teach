@@ -78,7 +78,7 @@ public class PPTServletTest extends AuthorizedUserServlet{
 	public void testAddPPT(){
 		formData.put("commitMessage", "commit1");
 		formData.put("content", "content1");
-		xhr.post("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
+		xhr.put("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
 		
 		assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
 		assertTrue(GitUtils.isGitRepo(gitRootPath + courseId));
@@ -88,12 +88,12 @@ public class PPTServletTest extends AuthorizedUserServlet{
 	public void testEditPPT(){
 		formData.put("commitMessage", "commit1");
 		formData.put("content", "content1");
-		xhr.post("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
+		xhr.put("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
 		
 		formData.clear();
 		formData.put("commitMessage", "commit2");
 		formData.put("content", "content2");
-		xhr.post("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
+		xhr.put("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
 		assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
 	}
 	
@@ -101,7 +101,7 @@ public class PPTServletTest extends AuthorizedUserServlet{
 	public void testGetPPT(){
 		formData.put("commitMessage", "commit1");
 		formData.put("content", "content1");
-		xhr.post("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
+		xhr.put("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
 		
 		xhr.get("courses/" + courseId + "/lessons/" + lessonId + "/ppt");
 		assertEquals(HttpURLConnection.HTTP_OK, xhr.getResponseCode());

@@ -142,21 +142,6 @@ public class CourseServlet extends BaseServlet{
 				}
 			}
 			
-		}else if(path.segmentCount() == 4){
-			Long userId = ((UserInfo)UserSession.getUser(req)).getId();
-			Long courseId = Long.valueOf(path.segment(0));
-			Long lessonId = Long.valueOf(path.segment(2));
-			String resLesson = path.segment(1);
-			String resPPT = path.segment(3);
-			if(resLesson.equals("lessons") && resPPT.equals("ppt")){
-				Map<String, Object> pptMap = RequestUtil.fromJsonObject(req);
-				String content = pptMap.get("content").toString();
-				String commitMessage = pptMap.get("commitMessage").toString();
-				pptService.add(userId, courseId, lessonId, content, commitMessage);
-				ResponseUtil.toJSON(req, resp, null, HttpServletResponse.SC_CREATED);
-				return;
-			}
-			
 		}
 		super.doPost(req, resp);
 	}
@@ -194,8 +179,29 @@ public class CourseServlet extends BaseServlet{
 		
 		super.doGet(req, resp);
 	}
-	
-	
 
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		traceRequest(req);
+		IPath path = getPath(req);
+		if(path.segmentCount() == 4){
+			Long userId = ((UserInfo)UserSession.getUser(req)).getId();
+			Long courseId = Long.valueOf(path.segment(0));
+			Long lessonId = Long.valueOf(path.segment(2));
+			String resLesson = path.segment(1);
+			String resPPT = path.segment(3);
+			if(resLesson.equals("lessons") && resPPT.equals("ppt")){
+				Map<String, Object> pptMap = RequestUtil.fromJsonObject(req);
+				String content = pptMap.get("content").toString();
+				String commitMessage = pptMap.get("commitMessage").toString();
+				pptService.add(userId, courseId, lessonId, content, commitMessage);
+				ResponseUtil.toJSON(req, resp, null, HttpServletResponse.SC_CREATED);
+				return;
+			}
+			
+		}
+		super.doPut(req, resp);
+	}
 	
 }
