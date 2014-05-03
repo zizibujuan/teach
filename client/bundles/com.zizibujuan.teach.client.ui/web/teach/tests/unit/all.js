@@ -1,4 +1,5 @@
 define([
 	"./CourseNewForm",
-	"./Lesson"
+	"./Lesson",
+	"./PPTDialog"
 ]);

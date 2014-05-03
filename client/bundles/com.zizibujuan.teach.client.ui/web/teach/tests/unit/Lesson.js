@@ -27,7 +27,6 @@ define(["intern!object",
 		"create": function(){
 			assert.isTrue(container.childElementCount > 0);
 			assert.isNotNull(lesson.grid);
-			debugger;
 		},
 		
 		teardown: function(){

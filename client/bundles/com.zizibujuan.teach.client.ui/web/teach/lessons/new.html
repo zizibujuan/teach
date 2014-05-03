@@ -17,8 +17,12 @@
 	
 <script type="text/javascript">
 require(["useradmin/user",
-         "teach/lesson/Lesson",
-         "dojo/domReady!"], function(){
+         "teach/lessons/Lesson",
+         "dojo/domReady!"], function(
+        		 user,
+        		 Lesson){
+	
+	
 	var lesson = new Lesson();
 	lesson.placeAt("lessonDiv");
 	lesson.startup();
@@ -26,7 +30,7 @@ require(["useradmin/user",
 </script>
 
 </head>
-<body>
+<body class="claro">
 
 <div>
 	<div id="lessonDiv"></div>

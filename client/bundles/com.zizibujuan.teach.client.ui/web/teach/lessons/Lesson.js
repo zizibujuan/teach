@@ -1,9 +1,11 @@
 define(["dojo/_base/declare",
         "dojo/_base/lang",
+        "dojo/dom-attr",
         "dojo/dom-form",
         "dojo/dom-construct",
         "dojo/on",
         "dojo/aspect",
+        "dojo/request/xhr",
         "dojo/store/JsonRest",
         "dojo/store/Observable",
         "dijit/registry",
@@ -17,10 +19,12 @@ define(["dojo/_base/declare",
         "dgrid/extensions/Pagination"], function(
         		declare,
         		lang,
+        		domAttr,
         		domForm,
         		domConstruct,
         		on,
         		aspect,
+        		xhr,
         		JsonRest,
         		Observable,
         		registry,
@@ -33,7 +37,7 @@ define(["dojo/_base/declare",
         		Grid,
         		Pagination){
 	
-	return declare("teach.lesson.Lesson", [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
+	return declare("teach.lessons.Lesson", [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
 		
 		templateString: lessonNewFormTemplate,
 		

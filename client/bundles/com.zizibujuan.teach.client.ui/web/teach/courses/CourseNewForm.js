@@ -23,7 +23,7 @@ define(["dojo/_base/declare",
 		_WidgetsInTemplateMixin,
 		courseNewFormTemplate){
 	
-	return declare("teach.course.CourseNewForm", [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
+	return declare("teach.courses.CourseNewForm", [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
 		templateString: courseNewFormTemplate,
 		
 		userId: null,
