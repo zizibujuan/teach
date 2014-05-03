@@ -2,6 +2,7 @@ package com.zizibujuan.teach.server.dao;
 
 import java.util.List;
 
+import com.zizibujuan.drip.server.util.PageInfo;
 import com.zizibujuan.teach.server.model.Lesson;
 
 /**
@@ -34,7 +35,8 @@ public interface LessonDao {
 	 * 查询课程下的所有课时
 	 * 
 	 * @param courseId 课程标识
+	 * @param pageInfo 分页信息
 	 * @return 课时列表，如果没有则返回空列表。
 	 */
-	List<Lesson> get(Long courseId);
+	List<Lesson> get(Long courseId, PageInfo pageInfo);
 }

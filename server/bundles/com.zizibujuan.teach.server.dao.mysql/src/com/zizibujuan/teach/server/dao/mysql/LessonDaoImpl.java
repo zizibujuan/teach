@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.zizibujuan.drip.server.util.PageInfo;
 import com.zizibujuan.drip.server.util.dao.AbstractDao;
 import com.zizibujuan.drip.server.util.dao.DatabaseUtil;
 import com.zizibujuan.drip.server.util.dao.PreparedStatementSetter;
@@ -59,14 +60,8 @@ public class LessonDaoImpl extends AbstractDao implements LessonDao {
 			+ "COURSE_ID=? "
 			+ "ORDER BY SEQ";
 	@Override
-	public List<Lesson> get(Long courseId) {
-		return DatabaseUtil.query(getDataSource(), SQL_LIST_LESSON, new PreparedStatementSetter() {
-			
-			@Override
-			public void setValues(PreparedStatement ps) throws SQLException {
-				ps.setLong(1, courseId);
-			}
-		}, new RowMapper<Lesson>() {
+	public List<Lesson> get(Long courseId, PageInfo pageInfo) {
+		return DatabaseUtil.query(getDataSource(), SQL_LIST_LESSON, new RowMapper<Lesson>() {
 			@Override
 			public Lesson mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Lesson lesson = new Lesson();
@@ -74,7 +69,7 @@ public class LessonDaoImpl extends AbstractDao implements LessonDao {
 				lesson.setName(rs.getString(2));
 				return lesson;
 			}
-		});
+		}, pageInfo, courseId);
 	}
 
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.core.runtime.IPath;
 
+import com.zizibujuan.drip.server.util.PageInfo;
 import com.zizibujuan.drip.server.util.servlet.BaseServlet;
 import com.zizibujuan.drip.server.util.servlet.RequestUtil;
 import com.zizibujuan.drip.server.util.servlet.ResponseUtil;
@@ -170,8 +171,9 @@ public class CourseServlet extends BaseServlet{
 			Long courseId = Long.valueOf(path.segment(0));
 			String res = path.segment(1);
 			if(res.equals("lessons")){
-				List<Lesson> result = lessonService.get(courseId);
-				ResponseUtil.toJSON(req, resp, result);
+				PageInfo pageInfo = getPageInfo(req);
+				List<Lesson> result = lessonService.get(courseId, pageInfo);
+				ResponseUtil.toJSON(req, resp, pageInfo, result);
 				return;
 			}
 		}

@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.zizibujuan.drip.server.util.PageInfo;
 import com.zizibujuan.teach.server.dao.LessonDao;
 import com.zizibujuan.teach.server.model.Lesson;
 import com.zizibujuan.teach.server.service.LessonService;
@@ -30,8 +31,8 @@ public class LessonServiceImpl implements LessonService {
 	}
 	
 	@Override
-	public List<Lesson> get(Long courseId) {
-		return lessonDao.get(courseId);
+	public List<Lesson> get(Long courseId, PageInfo pageInfo) {
+		return lessonDao.get(courseId, pageInfo);
 	}
 	
 	public void setLessonDao(LessonDao lessonDao) {

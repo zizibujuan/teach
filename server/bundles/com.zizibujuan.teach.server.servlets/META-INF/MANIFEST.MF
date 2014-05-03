@@ -6,7 +6,8 @@ Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.zizibujuan.teach.server.servlets.Activator
 Bundle-Vendor: zizibujuan.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.zizibujuan.drip.server.util.servlet,
+Import-Package: com.zizibujuan.drip.server.util,
+ com.zizibujuan.drip.server.util.servlet,
  com.zizibujuan.drip.server.util.servlet.validate,
  com.zizibujuan.teach.server.model,
  com.zizibujuan.teach.server.service,
