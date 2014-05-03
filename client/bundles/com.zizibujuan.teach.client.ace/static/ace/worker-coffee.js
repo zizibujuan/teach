@@ -173,7 +173,7 @@ window.onmessage = function(e) {
 };
 })(this);
 
-define('ace/document', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter', 'ace/range', 'ace/anchor'], function(require, exports, module) {
+ace.define('ace/document', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter', 'ace/range', 'ace/anchor'], function(require, exports, module) {
 
 
 var oop = require("./lib/oop");
@@ -532,7 +532,7 @@ var Document = function(text) {
 exports.Document = Document;
 });
 
-define('ace/lib/event_emitter', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/event_emitter', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 var EventEmitter = {};
@@ -658,7 +658,7 @@ exports.EventEmitter = EventEmitter;
 
 });
 
-define('ace/range', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/range', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 var comparePoints = function(p1, p2) {
     return p1.row - p2.row || p1.column - p2.column;
@@ -896,7 +896,7 @@ Range.comparePoints = function(p1, p2) {
 
 exports.Range = Range;
 });
-define('ace/worker/mirror', ['require', 'exports', 'module' , 'ace/document', 'ace/lib/lang'], function(require, exports, module) {
+ace.define('ace/worker/mirror', ['require', 'exports', 'module' , 'ace/document', 'ace/lib/lang'], function(require, exports, module) {
 
 
 var Document = require("../document").Document;
@@ -945,7 +945,7 @@ var Mirror = exports.Mirror = function(sender) {
 
 });
 
-define('ace/lib/lang', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/lang', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 exports.last = function(a) {
@@ -1132,7 +1132,7 @@ exports.delayedCall = function(fcn, defaultTimeout) {
 };
 });
 
-define('ace/mode/coffee/coffee-script', ['require', 'exports', 'module' , 'ace/mode/coffee/lexer', 'ace/mode/coffee/parser', 'ace/mode/coffee/nodes'], function(require, exports, module) {
+ace.define('ace/mode/coffee/coffee-script', ['require', 'exports', 'module' , 'ace/mode/coffee/lexer', 'ace/mode/coffee/parser', 'ace/mode/coffee/nodes'], function(require, exports, module) {
 
     var Lexer = require("./lexer").Lexer;
     var parser = require("./parser");
@@ -1165,7 +1165,7 @@ define('ace/mode/coffee/coffee-script', ['require', 'exports', 'module' , 'ace/m
     };
 });
 
-define('ace/mode/coffee/lexer', ['require', 'exports', 'module' , 'ace/mode/coffee/rewriter', 'ace/mode/coffee/helpers'], function(require, exports, module) {
+ace.define('ace/mode/coffee/lexer', ['require', 'exports', 'module' , 'ace/mode/coffee/rewriter', 'ace/mode/coffee/helpers'], function(require, exports, module) {
 
   var BOM, BOOL, CALLABLE, CODE, COFFEE_ALIASES, COFFEE_ALIAS_MAP, COFFEE_KEYWORDS, COMMENT, COMPARE, COMPOUND_ASSIGN, HEREDOC, HEREDOC_ILLEGAL, HEREDOC_INDENT, HEREGEX, HEREGEX_OMIT, IDENTIFIER, INDEXABLE, INVERSES, JSTOKEN, JS_FORBIDDEN, JS_KEYWORDS, LINE_BREAK, LINE_CONTINUER, LOGIC, Lexer, MATH, MULTILINER, MULTI_DENT, NOT_REGEX, NOT_SPACED_REGEX, NUMBER, OPERATOR, REGEX, RELATION, RESERVED, Rewriter, SHIFT, SIMPLESTR, STRICT_PROSCRIBED, TRAILING_SPACES, UNARY, WHITESPACE, compact, count, invertLiterate, key, last, locationDataToString, repeat, starts, throwSyntaxError, _ref, _ref1,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -2074,7 +2074,7 @@ define('ace/mode/coffee/lexer', ['require', 'exports', 'module' , 'ace/mode/coff
 
 });
 
-define('ace/mode/coffee/rewriter', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/mode/coffee/rewriter', ['require', 'exports', 'module' ], function(require, exports, module) {
 
   var BALANCED_PAIRS, CALL_CLOSERS, EXPRESSION_CLOSE, EXPRESSION_END, EXPRESSION_START, IMPLICIT_CALL, IMPLICIT_END, IMPLICIT_FUNC, IMPLICIT_UNSPACED_CALL, INVERSES, LINEBREAKS, SINGLE_CLOSERS, SINGLE_LINERS, generate, left, rite, _i, _len, _ref,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -2564,7 +2564,7 @@ define('ace/mode/coffee/rewriter', ['require', 'exports', 'module' ], function(r
 
 });
 
-define('ace/mode/coffee/helpers', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/mode/coffee/helpers', ['require', 'exports', 'module' ], function(require, exports, module) {
 
   var buildLocationData, extend, flatten, last, repeat, syntaxErrorToString, _ref;
 
@@ -2809,7 +2809,7 @@ define('ace/mode/coffee/helpers', ['require', 'exports', 'module' ], function(re
 
 });
 
-define('ace/lib/oop', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/oop', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 exports.inherits = function(ctor, superCtor) {
@@ -2837,7 +2837,7 @@ exports.implement = function(proto, mixin) {
 
 });
 
-define('ace/mode/coffee/parser', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/mode/coffee/parser', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 var parser = {trace: function trace() { },
 yy: {},
@@ -3460,7 +3460,7 @@ module.exports = new Parser;
 
 });
 
-define('ace/mode/coffee_worker', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/worker/mirror', 'ace/mode/coffee/coffee-script'], function(require, exports, module) {
+ace.define('ace/mode/coffee_worker', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/worker/mirror', 'ace/mode/coffee/coffee-script'], function(require, exports, module) {
 
 
 var oop = require("../lib/oop");
@@ -3505,7 +3505,7 @@ oop.inherits(Worker, Mirror);
 
 });
 
-define('ace/mode/coffee/nodes', ['require', 'exports', 'module' , 'ace/mode/coffee/scope', 'ace/mode/coffee/lexer', 'ace/mode/coffee/helpers'], function(require, exports, module) {
+ace.define('ace/mode/coffee/nodes', ['require', 'exports', 'module' , 'ace/mode/coffee/scope', 'ace/mode/coffee/lexer', 'ace/mode/coffee/helpers'], function(require, exports, module) {
 
   var Access, Arr, Assign, Base, Block, Call, Class, Code, CodeFragment, Comment, Existence, Extends, For, HEXNUM, IDENTIFIER, IDENTIFIER_STR, IS_REGEX, IS_STRING, If, In, Index, LEVEL_ACCESS, LEVEL_COND, LEVEL_LIST, LEVEL_OP, LEVEL_PAREN, LEVEL_TOP, Literal, METHOD_DEF, NEGATE, NO, NUMBER, Obj, Op, Param, Parens, RESERVED, Range, Return, SIMPLENUM, STRICT_PROSCRIBED, Scope, Slice, Splat, Switch, TAB, THIS, Throw, Try, UTILITIES, Value, While, YES, addLocationDataFn, compact, del, ends, extend, flatten, fragmentsToText, isLiteralArguments, isLiteralThis, last, locationDataToString, merge, multident, parseNum, some, starts, throwSyntaxError, unfoldSoak, utility, _ref, _ref1,
     __hasProp = {}.hasOwnProperty,
@@ -6585,7 +6585,7 @@ define('ace/mode/coffee/nodes', ['require', 'exports', 'module' , 'ace/mode/coff
 
 });// https://github.com/kriskowal/es5-shim
 
-define('ace/lib/es5-shim', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/es5-shim', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 function Empty() {}
 
@@ -7282,7 +7282,7 @@ var toObject = function (o) {
 
 });
 
-define('ace/mode/coffee/scope', ['require', 'exports', 'module' , 'ace/mode/coffee/helpers'], function(require, exports, module) {
+ace.define('ace/mode/coffee/scope', ['require', 'exports', 'module' , 'ace/mode/coffee/helpers'], function(require, exports, module) {
 
   var Scope, extend, last, _ref;
 
@@ -7430,7 +7430,7 @@ define('ace/mode/coffee/scope', ['require', 'exports', 'module' , 'ace/mode/coff
 
 });
 
-define('ace/anchor', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
+ace.define('ace/anchor', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
 
 
 var oop = require("./lib/oop");

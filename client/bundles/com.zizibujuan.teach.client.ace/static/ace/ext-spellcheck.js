@@ -1,4 +1,4 @@
-define('ace/ext/spellcheck', ['require', 'exports', 'module' , 'ace/lib/event', 'ace/editor', 'ace/config'], function(require, exports, module) {
+ace.define('ace/ext/spellcheck', ['require', 'exports', 'module' , 'ace/lib/event', 'ace/editor', 'ace/config'], function(require, exports, module) {
 
 var event = require("../lib/event");
 
@@ -68,6 +68,6 @@ require("../config").defineOptions(Editor.prototype, "editor", {
 
 ;
                 (function() {
-                    window.require(["ace/ext/spellcheck"], function() {});
+                    ace.require(["ace/ext/spellcheck"], function() {});
                 })();
             

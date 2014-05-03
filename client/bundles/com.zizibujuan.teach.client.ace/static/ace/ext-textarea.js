@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/ext/textarea', ['require', 'exports', 'module' , 'ace/lib/event', 'ace/lib/useragent', 'ace/lib/net', 'ace/ace', 'ace/theme/textmate', 'ace/mode/text'], function(require, exports, module) {
+ace.define('ace/ext/textarea', ['require', 'exports', 'module' , 'ace/lib/event', 'ace/lib/useragent', 'ace/lib/net', 'ace/ace', 'ace/theme/textmate', 'ace/mode/text'], function(require, exports, module) {
 
 
 var event = require("../lib/event");
@@ -478,6 +478,6 @@ exports.options = {
 });
 ;
                 (function() {
-                    window.require(["ace/ext/textarea"], function() {});
+                    ace.require(["ace/ext/textarea"], function() {});
                 })();
             

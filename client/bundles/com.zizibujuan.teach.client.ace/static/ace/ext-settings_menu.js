@@ -30,7 +30,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/ext/settings_menu', ['require', 'exports', 'module' , 'ace/ext/menu_tools/generate_settings_menu', 'ace/ext/menu_tools/overlay_page', 'ace/editor'], function(require, exports, module) {
+ace.define('ace/ext/settings_menu', ['require', 'exports', 'module' , 'ace/ext/menu_tools/generate_settings_menu', 'ace/ext/menu_tools/overlay_page', 'ace/editor'], function(require, exports, module) {
 
 var generateSettingsMenu = require('./menu_tools/generate_settings_menu').generateSettingsMenu;
 var overlayPage = require('./menu_tools/overlay_page').overlayPage;
@@ -47,7 +47,7 @@ module.exports.init = function(editor) {
 };
 });
 
-define('ace/ext/menu_tools/generate_settings_menu', ['require', 'exports', 'module' , 'ace/ext/menu_tools/element_generator', 'ace/ext/menu_tools/add_editor_menu_options', 'ace/ext/menu_tools/get_set_functions'], function(require, exports, module) {
+ace.define('ace/ext/menu_tools/generate_settings_menu', ['require', 'exports', 'module' , 'ace/ext/menu_tools/element_generator', 'ace/ext/menu_tools/add_editor_menu_options', 'ace/ext/menu_tools/get_set_functions'], function(require, exports, module) {
 
 var egen = require('./element_generator');
 var addEditorMenuOptions = require('./add_editor_menu_options').addEditorMenuOptions;
@@ -166,7 +166,7 @@ module.exports.generateSettingsMenu = function generateSettingsMenu (editor) {
 
 });
 
-define('ace/ext/menu_tools/element_generator', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/ext/menu_tools/element_generator', ['require', 'exports', 'module' ], function(require, exports, module) {
 module.exports.createOption = function createOption (obj) {
     var attribute;
     var el = document.createElement('option');
@@ -221,7 +221,7 @@ module.exports.createSelection = function createSelection (id, values, clss) {
 
 });
 
-define('ace/ext/menu_tools/add_editor_menu_options', ['require', 'exports', 'module' , 'ace/ext/modelist', 'ace/ext/themelist'], function(require, exports, module) {
+ace.define('ace/ext/menu_tools/add_editor_menu_options', ['require', 'exports', 'module' , 'ace/ext/modelist', 'ace/ext/themelist'], function(require, exports, module) {
 module.exports.addEditorMenuOptions = function addEditorMenuOptions (editor) {
     var modelist = require('../modelist');
     var themelist = require('../themelist');
@@ -267,7 +267,7 @@ module.exports.addEditorMenuOptions = function addEditorMenuOptions (editor) {
 
 
 });
-define('ace/ext/modelist', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/ext/modelist', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 var modes = [];
@@ -438,7 +438,7 @@ module.exports = {
 
 });
 
-define('ace/ext/themelist', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/ext/themelist', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 var themeData = [
@@ -492,7 +492,7 @@ exports.themes = themeData.map(function(data) {
 
 });
 
-define('ace/ext/menu_tools/get_set_functions', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/ext/menu_tools/get_set_functions', ['require', 'exports', 'module' ], function(require, exports, module) {
 module.exports.getSetFunctions = function getSetFunctions (editor) {
     var out = [];
     var my = {
@@ -533,7 +533,7 @@ module.exports.getSetFunctions = function getSetFunctions (editor) {
 
 });
 
-define('ace/ext/menu_tools/overlay_page', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
+ace.define('ace/ext/menu_tools/overlay_page', ['require', 'exports', 'module' , 'ace/lib/dom'], function(require, exports, module) {
 
 var dom = require("../../lib/dom");
 var cssText = "#ace_settingsmenu, #kbshortcutmenu {\
@@ -634,6 +634,6 @@ module.exports.overlayPage = function overlayPage(editor, contentElement, top, r
 
 });;
                 (function() {
-                    window.require(["ace/ext/settings_menu"], function() {});
+                    ace.require(["ace/ext/settings_menu"], function() {});
                 })();
             

@@ -30,7 +30,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/ext/themelist', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/ext/themelist', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 var themeData = [
@@ -86,6 +86,6 @@ exports.themes = themeData.map(function(data) {
 
 ;
                 (function() {
-                    window.require(["ace/ext/themelist"], function() {});
+                    ace.require(["ace/ext/themelist"], function() {});
                 })();
             
