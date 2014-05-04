@@ -1,0 +1,34 @@
+#%RAML 0.8
+title: 课程表管理API
+baseUri: http://zizibujuan.com
+version: v0.1
+/curricula:
+  description: 维护课程表，可使用日历控件维护。
+  displayName: Curriculum Schedule
+  post:
+    description: 登录用户在课程表中新增课程
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          courseId:
+            description: 课程编号
+            type: integer
+            required: true
+          teacherId:
+            description: 代课老师标识,支持途中更换老师，但是不要删除之前老师的上课记录。
+          classId:
+            description: 班级标识。
+            type: integer
+            required: true
+          meetingTime:
+            description: 开课时间，以周计算，支持一个星期多门课，如星期一早上9点到10点
+    responses:
+      201:
+        description: 登录用户安排课时成功
+        body:
+          application/json:
+            schema: |
+              {
+                "id": 1
+              }
+            
