@@ -70,3 +70,27 @@ version: v0.1
                 {
                   "message": "课程名已被使用"
                 }              
+/{loginName}/courses:
+  uriParameters:
+    loginName:
+      description: 用户名，这里指登录名
+  get:
+    description: |
+      获取指定用户所开设的课程列表，按照时间顺序倒排。
+      支持分页，每页25条记录,Range: items=0-24
+    headers:
+      Range:
+        description: 分页信息
+        example: items=0-24
+    responses:
+      200:
+        description: 成功获取指定用户所开设的课程列表
+        body:
+          application/json:
+            schema: |
+              [{
+                "id": 1,
+                "name": "course1",
+                "description": "desc1"
+              }]
+        
