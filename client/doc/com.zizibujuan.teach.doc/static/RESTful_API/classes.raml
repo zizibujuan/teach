@@ -1,0 +1,78 @@
+#%RAML 0.8
+title: 班级管理API
+baseUri: http://zizibujuan.com
+version: v0.1
+/classes:
+  description: |
+    班级管理，注意在往后的API设计中，要避免加入年级这个概念，这是一个限制学生自由发展的恶魔。
+  displayName: Classes
+  post:
+    description: |
+      登录用户新建班级，每个老师都可以创建自己的班级，所有一个老师创建的班级名称不能重复，但是两个老师可以创建相同的班级名称。
+      需要记录班级创建时间。
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          name:
+            description: 班级名称，只能由英文字母、数字、下划线等字符组成。
+            displayName: 名称
+            type: string
+            maxLength: 10
+            required: true
+          description:
+            description: 班级简介。
+            displayName: 简介
+            type: string
+            maxLength: 256
+    responses:
+      201:
+        description: 登录用户班级创建成功
+        body:
+          application/json:
+            schema: |
+              {
+                "id": 1
+              }
+      412:
+        description: 登录用户已使用班级名称
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "field",
+                "errors": [
+                  {
+                    "field": "name", 
+                    "message": "名称已被使用 | 名称不能为空 | 名称最多10个字 | 名称只能使用英文字母、数字或中划线"
+                  }
+                ]
+              }  
+  /check-name:
+    post:
+      queryParameters:
+        owner:
+          type: string
+          description: 用户标识
+      body:
+        application/x-www-form-urlencoded:
+          formParameters:
+            value:
+              description: 班级名
+              type: string
+      responses:
+        200:
+          description: 登录用户没有使用指定的班级名称，并且班级名称只由英文字、数字或下划线组成
+          body:
+            application/json:
+              schema: |
+                {
+                  "name": "class1"
+                }
+        403:
+          description: 登录用户已经使用了班级名称
+          body:
+            application/json:
+              schema: |
+                {
+                  "message": "班级名已被使用"
+                }  
