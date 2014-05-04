@@ -8,6 +8,7 @@ define(["dojo/_base/declare",
         "dijit/_WidgetBase", 
         "dijit/_TemplatedMixin",
         "dijit/_WidgetsInTemplateMixin",
+        "dojo/i18n!teach/nls/CourseNewForm",
         "dojo/text!teach/templates/CourseNewForm.html",
         "dijit/form/ValidationTextBox",
         "dijit/form/SimpleTextarea"], function(
@@ -21,10 +22,20 @@ define(["dojo/_base/declare",
 		_WidgetBase,
 		_TemplatedMixin,
 		_WidgetsInTemplateMixin,
+		courseNewFormMessages,
 		courseNewFormTemplate){
 	
 	return declare("teach.courses.CourseNewForm", [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
 		templateString: courseNewFormTemplate,
+		
+		labelName: courseNewFormMessages.label_name,
+		_setLabelNameAttr: { node: "lblName", attribute: "innerHTML" },
+		
+		labelDesc: courseNewFormMessages.label_desc,
+		_setLabelDescAttr: { node: "lblDesc", attribute: "innerHTML" },
+		
+		buttonSave: courseNewFormMessages.button_save,
+		_setButtonSaveAttr: { node: "btnCreate", attribute: "innerHTML" },
 		
 		userId: null,
 		
@@ -34,8 +45,6 @@ define(["dojo/_base/declare",
 		
 		postCreate: function(){
 			this.inherited(arguments);
-			
-			
 			
 			// 唯一性校验
 			this.txtCourseName.validator = lang.hitch(this, this._checkNameUnique);

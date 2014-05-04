@@ -14,6 +14,7 @@ define(["dojo/_base/declare",
         "dijit/_WidgetsInTemplateMixin",
         "dijit/form/Button",
         "dijit/form/ValidationTextBox",
+        "dojo/i18n!teach/nls/Lesson",
         "dojo/text!teach/templates/LessonNewForm.html",
         "dgrid/Grid",
         "dgrid/extensions/Pagination",
@@ -34,6 +35,7 @@ define(["dojo/_base/declare",
         		_WidgetsInTemplateMixin,
         		Button,
         		ValidationTextBox,
+        		lessonMessages,
         		lessonNewFormTemplate,
         		Grid,
         		Pagination,
@@ -42,6 +44,12 @@ define(["dojo/_base/declare",
 	return declare("teach.lessons.Lesson", [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
 		
 		templateString: lessonNewFormTemplate,
+		
+		labelName: lessonMessages.label_name,
+		_setLabelNameAttr: { node: "lblName", attribute: "innerHTML" },
+		
+		buttonSave: lessonMessages.button_save,
+		_setButtonSaveAttr: { node: "btnCreate", attribute: "innerHTML" },
 		
 		courseId: null,
 		
@@ -85,16 +93,16 @@ define(["dojo/_base/declare",
 		_createGrid: function(){
 			var self = this;
 			var columns = [{
-				label: "名称",
+				label: lessonMessages.column_name,
 				field: "name",
 				sortable: false
 			},{
-				label: "内容",
+				label: lessonMessages.column_content,
 				field: "id",
 				sortable: false,
 				renderCell: function(object, value, node, options){
 					var btnPPT = new Button({
-						label: "ppt"
+						label: lessonMessages.column_ppt
 					}, node.appendChild(domConstruct.create("div", {})));
 					btnPPT.on("click", function(e){
 						// TODO:弹出对话框

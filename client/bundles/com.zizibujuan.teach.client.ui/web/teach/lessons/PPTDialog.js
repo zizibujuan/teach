@@ -5,7 +5,8 @@ define(["dojo/_base/declare",
         "dojo/request/xhr",
         "dijit/form/TextBox",
         "dijit/form/Button",
-        "dijit/Dialog"], function(
+        "dijit/Dialog",
+        "dojo/i18n!teach/nls/PPTDialog"], function(
 		declare,
 		lang,
 		JSON,
@@ -13,7 +14,8 @@ define(["dojo/_base/declare",
 		xhr,
 		TextBox,
 		Button,
-		Dialog){
+		Dialog,
+		pptDialogMessages){
 	
 	return declare("teach.lessons.PPTDialog", [Dialog], {
 		
@@ -21,7 +23,7 @@ define(["dojo/_base/declare",
 		
 		lessonId: null,
 		
-		title: "ppt内容",
+		title: pptDialogMessages.title,
 		
 		postCreate: function(){
 			this.inherited(arguments);
@@ -34,7 +36,7 @@ define(["dojo/_base/declare",
 			}, this.containerNode);
 			
 			var lblPPT = domConstruct.create("div", {
-				innerHTML: "ppt内容(markdown格式)"
+				innerHTML: pptDialogMessages.label_ppt
 			}, contentArea);
 			var pptContainer = domConstruct.create("div", {
 				style: "position: relative; width: 600px; height: 300px"
@@ -45,7 +47,7 @@ define(["dojo/_base/declare",
 			editor.getSession().setMode("ace/mode/java");
 			
 			var lblCommit = domConstruct.create("div", {
-				innerHTML: "提交说明(必填)"
+				innerHTML: pptDialogMessages.label_commit
 			}, contentArea);
 			var commitContainer = domConstruct.create("div", {}, contentArea);
 			var txtCommit = this.txtCommit = new TextBox({
@@ -55,10 +57,10 @@ define(["dojo/_base/declare",
 			
 			// 操作按钮
 			var btnOk = new Button({
-				label: "保存"
+				label: pptDialogMessages.button_save
 			});
 			var btnCancel = new Button({
-				label: "取消"
+				label: pptDialogMessages.button_cancel
 			});
 			btnOk.on("click", lang.hitch(this, this._onSaveContent));
 			btnCancel.on("click", lang.hitch(this, function(e){

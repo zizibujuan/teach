@@ -1,13 +1,13 @@
 <div>
 	<form data-dojo-attach-point="form">
 		<div>
-			<label for="txtCourseName">课程名称</label>
+			<label for="txtCourseName" data-dojo-attach-point="lblName"></label>
 			<input data-dojo-attach-point="txtCourseName" data-dojo-type="dijit/form/ValidationTextBox" name="name" id="txtCourseName"></input>
 		</div>
 		<div>
-			<label for="txtDesc">课程描述</label>
+			<label for="txtDesc" data-dojo-attach-point="lblDesc"></label>
 			<textarea data-dojo-type="dijit/form/SimpleTextarea" name="description" rows="3" id="txtDesc"></textarea>
 		</div>
 	</form>
-	<button data-dojo-attach-point="btnCreate" type="button" disabled class="btn btn-primary">创建</button>
+	<button data-dojo-attach-point="btnCreate" type="button" disabled class="btn btn-primary"></button>
 </div>
