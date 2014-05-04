@@ -85,6 +85,11 @@ version: v0.1
     responses:
       200:
         description: 成功获取指定用户所开设的课程列表
+        headers:
+          Content-Range:
+            description: 返回的分页信息
+            type: string
+            example: items 0-24/66
         body:
           application/json:
             schema: |
