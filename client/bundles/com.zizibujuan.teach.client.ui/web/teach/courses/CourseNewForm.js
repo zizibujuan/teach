@@ -32,10 +32,9 @@ define(["dojo/_base/declare",
 		
 		checkNameUrl: "/courses/check-name",
 		
-		redirectUrl: "",
-		
 		postCreate: function(){
 			this.inherited(arguments);
+			
 			
 			
 			// 唯一性校验
@@ -48,9 +47,11 @@ define(["dojo/_base/declare",
 						data: domForm.toJson(this.form)
 					}).then(lang.hitch(this,function(data){
 						// 跳转到指定的页面
-						window.location.href = this.redirectUrl;
+						var courseId = data.id;
+						window.location.href = this.url + "/" + courseId + "/lessons/new";
 					}), lang.hitch(this, function(error){
 						// 提示错误信息
+						console.error(error);
 					}));
 				}))
 			);

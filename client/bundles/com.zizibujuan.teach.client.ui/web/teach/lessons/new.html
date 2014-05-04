@@ -8,22 +8,27 @@
 <link type="text/css" rel="stylesheet" href="/dijit/themes/claro/claro.css" />
 <link type="text/css" rel="stylesheet" href="/fontawesome/css/font-awesome.css" />
 
+<script type="text/javascript" src="/ace/ace.js"></script>
 <script type="text/javascript" 
 	data-dojo-config="
 		async:true,
 		parseOnLoad:false,
 		isDebug:true" 
 	src="/dojo/dojo.js"></script>
+
 	
 <script type="text/javascript">
 require(["useradmin/user",
          "teach/lessons/Lesson",
+         "common/Path",
          "dojo/domReady!"], function(
         		 user,
-        		 Lesson){
-	
-	
-	var lesson = new Lesson();
+        		 Lesson,
+        		 Path){
+	var path = new Path(window.location.pathname);
+	var lesson = new Lesson({
+		courseId: path.segment(1)
+	});
 	lesson.placeAt("lessonDiv");
 	lesson.startup();
 });
@@ -34,93 +39,6 @@ require(["useradmin/user",
 
 <div>
 	<div id="lessonDiv"></div>
-</div>
-
-<div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lessonModal">
-	<span class="glyphicon glyphicon-plus"></span> 课时
-</button>
-<div class="modal fade" id="lessonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">添加课时</h4>
-      </div>
-      <div class="modal-body">
-      	<form role="form">
-			<div class="form-group">
-				<label for="txtTitle">标题</label>
-				<input class="form-control" id="txtTitle">
-			</div>
-		</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" id="btnSaveLesson" class="btn btn-primary">保存</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<table class="table">
-
-<tbody>
-	<tr>
-		<td>a</td>
-		<td>
-			<button type="button" class="btn btn-default"  data-toggle="modal" data-target="#pptModal">
-				<span class="glyphicon glyphicon-plus"></span> ppt
-			</button>
-		</td>
-	</tr>
-</tbody>
-
-</table>
-
-<div class="modal fade" id="pptModal" tabindex="-1" role="dialog" aria-labelledby="pptModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="pptModalLabel">管理ppt</h4>
-      </div>
-      <div class="modal-body">
-      	<div class="container-fluid">
-	      	<div class="row">
-			  <div class="col-md-3">
-			  	<table class="table">
-			  		<tbody>
-			  			<tr>
-			  				<td>1</td>
-			  			</tr>
-			  		</tbody>
-			  	</table>
-			  </div>
-			  <div class="col-md-9">
-			  	<form role="form">
-					<div class="form-group">
-						<label for="txtPPTTitle">标题</label>
-						<input class="form-control" id="txtPPTTitle">
-					</div>
-					<div class="form-group">
-						<label for="txtPPTContent">内容(markdown格式)</label>
-						<textarea class="form-control" id="txtPPTContent" rows="7"></textarea>
-					</div>
-					<button type="button" id="btnSavePPT" class="btn btn-primary">保存</button>
-				</form>
-			  </div>
-			</div>
-	      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 </div>
 
 </body>

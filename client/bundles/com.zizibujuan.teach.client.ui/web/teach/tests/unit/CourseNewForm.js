@@ -1,7 +1,7 @@
 define(["intern!object",
         "intern/chai!assert",
         "dojo/dom-attr",
-        "teach/course/CourseNewForm"], function(
+        "teach/courses/CourseNewForm"], function(
         		registerSuite,
         		assert,
         		domAttr,

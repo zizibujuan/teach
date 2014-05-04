@@ -1,36 +1,29 @@
 define(["intern!object",
         "intern/chai!assert",
-        "teach/lessons/Lesson"], function(
+        "teach/lessons/PPTDialog"], function(
         		registerSuite,
         		assert,
-        		Lesson){
+        		PPTDialog){
 	
-	var container, lesson;
+	var container, pptDialog;
 	
 	registerSuite({
-		name: "Lesson",
+		name: "ppt dialog",
 		setup: function(){
 			container = document.createElement("div");
 			document.body.appendChild(container);
-			lesson = new Lesson({
-				_checkNameUnique: function(){
-					return true;
-				},
-				_createGrid: function(){
-					
-				}
-			});
-			lesson.placeAt(container);
-			lesson.startup();
+			pptDialog = new PPTDialog();
 		},
 		
 		"create": function(){
+			pptDialog.show();
 			assert.isTrue(container.childElementCount > 0);
-			assert.isNotNull(lesson.grid);
+			assert.isNotNull(pptDialog);
+			debugger;
 		},
 		
 		teardown: function(){
-			lesson.destroyRecursive();
+			pptDialog.destroyRecursive();
 			container.parentNode.removeChild(container);
 		}
 		

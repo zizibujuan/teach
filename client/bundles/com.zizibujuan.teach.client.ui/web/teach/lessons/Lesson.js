@@ -16,7 +16,8 @@ define(["dojo/_base/declare",
         "dijit/form/ValidationTextBox",
         "dojo/text!teach/templates/LessonNewForm.html",
         "dgrid/Grid",
-        "dgrid/extensions/Pagination"], function(
+        "dgrid/extensions/Pagination",
+        "teach/lessons/PPTDialog"], function(
         		declare,
         		lang,
         		domAttr,
@@ -35,7 +36,8 @@ define(["dojo/_base/declare",
         		ValidationTextBox,
         		lessonNewFormTemplate,
         		Grid,
-        		Pagination){
+        		Pagination,
+        		PPTDialog){
 	
 	return declare("teach.lessons.Lesson", [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
 		
@@ -81,20 +83,26 @@ define(["dojo/_base/declare",
 		},
 		
 		_createGrid: function(){
+			var self = this;
 			var columns = [{
 				label: "名称",
 				field: "name",
 				sortable: false
 			},{
-				label: "操作 ",
+				label: "内容",
 				field: "id",
 				sortable: false,
 				renderCell: function(object, value, node, options){
 					var btnPPT = new Button({
-						title: "ppt"
+						label: "ppt"
 					}, node.appendChild(domConstruct.create("div", {})));
 					btnPPT.on("click", function(e){
 						// TODO:弹出对话框
+						var dialog = new PPTDialog({
+							courseId: self.courseId,
+							lessonId: value
+						});
+						dialog.show();
 					});
 				}
 			}];
