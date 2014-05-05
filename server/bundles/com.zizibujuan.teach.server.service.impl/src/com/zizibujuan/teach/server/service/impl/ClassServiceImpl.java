@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.zizibujuan.teach.server.dao.ClassDao;
+import com.zizibujuan.teach.server.model.ClassInfo;
 import com.zizibujuan.teach.server.service.ClassService;
 
 /**
@@ -18,6 +19,11 @@ public class ClassServiceImpl implements ClassService {
 	
 	private ClassDao classDao;
 	
+	@Override
+	public Long add(Long userId, ClassInfo classInfo) {
+		return classDao.add(userId, classInfo);
+	}
+	
 	public void setClassDao(ClassDao classDao) {
 		logger.info("注入ClassDao");
 		this.classDao = classDao;
@@ -29,4 +35,5 @@ public class ClassServiceImpl implements ClassService {
 			this.classDao = null;
 		}
 	}
+
 }

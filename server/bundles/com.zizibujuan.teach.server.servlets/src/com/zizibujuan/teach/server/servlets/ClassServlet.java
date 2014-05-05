@@ -42,9 +42,7 @@ public class ClassServlet extends BaseServlet{
 		if(path.segmentCount() == 0){
 			Long userId = ((UserInfo)UserSession.getUser(req)).getId();
 			ClassInfo classInfo = RequestUtil.fromJsonObject(req, ClassInfo.class);
-			
-			
-			Long classId = 0l;
+			Long classId = classService.add(userId, classInfo);
 			Map<String, Object> result = new HashMap<String, Object>();
 			result.put("id", classId);
 			ResponseUtil.toJSON(req, resp, result, HttpServletResponse.SC_CREATED);

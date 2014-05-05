@@ -117,4 +117,11 @@ public class CourseServletTest extends AuthorizedUserServlet{
 		returnContent = xhr.getContentAsJsonObject();
 		assertEquals("课程名已被使用", returnContent.get("message"));
 	}
+	
+	@Test
+	public void testGetMyCourses(){
+		// 创建两个用户，并用每个用户创建一个课程
+		// 然后获取其中一个用户的课程
+		// 注意可以不用登录
+	}
 }

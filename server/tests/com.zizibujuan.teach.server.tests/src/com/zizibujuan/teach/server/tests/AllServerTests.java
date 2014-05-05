@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import com.zizibujuan.teach.server.tests.servlets.ClassServletTest;
 import com.zizibujuan.teach.server.tests.servlets.CourseServletTest;
 import com.zizibujuan.teach.server.tests.servlets.LessonServletTest;
 import com.zizibujuan.teach.server.tests.servlets.PPTServletTest;
@@ -12,7 +13,8 @@ import com.zizibujuan.teach.server.tests.servlets.PPTServletTest;
 @SuiteClasses({
 	CourseServletTest.class,
 	LessonServletTest.class,
-	PPTServletTest.class
+	PPTServletTest.class,
+	ClassServletTest.class
 })
 public class AllServerTests {
 

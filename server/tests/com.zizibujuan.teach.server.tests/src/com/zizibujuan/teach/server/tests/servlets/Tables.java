@@ -10,4 +10,5 @@ public abstract class Tables {
 
 	public static final String COURSE = "DRIP_COURSE";
 	public static final String LESSON = "DRIP_LESSON";
+	public static final String CLASS = "DRIP_CLASS";
 }
