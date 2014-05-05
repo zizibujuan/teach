@@ -14,14 +14,39 @@ version: v0.1
             description: 课程编号
             type: integer
             required: true
+          startDate:
+            description: 整个课程开始日期
+            type: date
+          repeatCount:
+            description: 重复次数, 注意repeatCount和endDate二选一
+            type: integer
+          endDate:
+            description: 整个课程结束日期
+            type: date
           teacherId:
-            description: 代课老师标识,支持途中更换老师，但是不要删除之前老师的上课记录。
+            description: |
+              默认代课老师标识,支持途中更换老师，但是不要删除之前老师的上课记录。
+              但是实际授课过程中，要记录实际的授课老师。支持多个授课老师。
+              多个授课老师时，使用逗号隔开。
+            type: string
           classId:
             description: 班级标识。
             type: integer
             required: true
-          meetingTime:
-            description: 开课时间，以周计算，支持一个星期多门课，如星期一早上9点到10点
+          frequency:
+            description: 重复类型， 以下为重复设置选项
+            type: string
+            enum: [weekly]
+          repeatOnWeekly:
+            description: 一周中的重复天数，可多选, 还需要每天的讲课时间段，每天的时间段会出现不相同的情况。
+            type: string
+            enum: [星期一, 星期二, 星期三, 星期四, 星期五, 星期六, 星期日]
+            example: |
+              [{
+                day: M,
+                startTime: 9:30,
+                endTime: 10:30
+              }]
     responses:
       201:
         description: 登录用户安排课时成功
