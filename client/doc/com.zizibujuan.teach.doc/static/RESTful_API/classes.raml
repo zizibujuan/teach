@@ -76,3 +76,28 @@ version: v0.1
                 {
                   "message": "班级名已被使用"
                 }  
+  /{classId}/users:
+    description: 维护班级中的学生
+    uriParameters:
+      classId:
+        description: 班级标识
+        type: integer
+        required: true
+    post:
+      description: 在指定的班级下添加学生
+      body:
+        application/x-www-form-urlencoded:
+          formParameters:
+            userId:
+              description: 学生标识
+              type: integer
+              required: true
+      responses:
+        201:
+          description: 在指定的班级下添加学生成功
+          body:
+            application/json:
+              schema: |
+                {
+                  "id": 1
+                }
