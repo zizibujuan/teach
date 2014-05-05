@@ -18,5 +18,10 @@
             class="com.zizibujuan.teach.server.servlets.CourseServlet">
       </servlet>
       
+      <servlet
+            alias="/classes"
+            class="com.zizibujuan.teach.server.servlets.ClassServlet">
+      </servlet>
+      
     </extension>
 </plugin>

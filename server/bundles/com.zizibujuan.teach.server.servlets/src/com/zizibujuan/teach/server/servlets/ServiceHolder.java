@@ -3,6 +3,7 @@ package com.zizibujuan.teach.server.servlets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.zizibujuan.teach.server.service.ClassService;
 import com.zizibujuan.teach.server.service.CourseService;
 import com.zizibujuan.teach.server.service.LessonService;
 import com.zizibujuan.teach.server.service.PPTService;
@@ -83,5 +84,23 @@ public class ServiceHolder {
 	}
 	public PPTService getPPTService() {
 		return pptService;
+	}
+
+	
+	private ClassService classService;
+
+	public void setClassService(ClassService classService) {
+		logger.info("注入ClassService");
+		this.classService = classService;
+	}
+
+	public void unsetClassService(ClassService classService) {
+		logger.info("注销ClassService");
+		if (this.classService == classService) {
+			this.classService = null;
+		}
+	}
+	public ClassService getClassService() {
+		return classService;
 	}
 }
