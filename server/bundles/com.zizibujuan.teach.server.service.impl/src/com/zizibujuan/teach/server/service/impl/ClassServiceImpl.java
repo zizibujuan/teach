@@ -24,6 +24,11 @@ public class ClassServiceImpl implements ClassService {
 		return classDao.add(userId, classInfo);
 	}
 	
+	@Override
+	public void addStudent(Long createUserId, Long classId, Long studentId) {
+		classDao.addStudent(createUserId, classId, studentId);
+	}
+	
 	public void setClassDao(ClassDao classDao) {
 		logger.info("注入ClassDao");
 		this.classDao = classDao;
@@ -35,5 +40,7 @@ public class ClassServiceImpl implements ClassService {
 			this.classDao = null;
 		}
 	}
+
+
 
 }

@@ -49,6 +49,21 @@ public class ClassServlet extends BaseServlet{
 			return;
 		}
 		
+		if(path.segmentCount() == 2){
+			String resName = path.segment(1);
+			// TODO: 把资源名提取到常量类中
+			if(resName.equals("users")){
+				Long createUserId = ((UserInfo)UserSession.getUser(req)).getId();
+				Long classId = Long.valueOf(path.segment(0));
+				Map<String, Object> student = RequestUtil.fromJsonObject(req);
+				Long studentId = Long.valueOf(student.get("userId").toString());
+				classService.addStudent(createUserId, classId, studentId);
+				resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+				return;
+			}
+			
+		}
+		
 		super.doPost(req, resp);
 	}
 

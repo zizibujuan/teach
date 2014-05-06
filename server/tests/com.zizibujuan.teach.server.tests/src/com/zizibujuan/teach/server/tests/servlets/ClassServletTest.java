@@ -43,4 +43,32 @@ public class ClassServletTest extends AuthorizedUserServlet{
 		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
 		assertNotNull(returnContent.get("id"));
 	}
+	
+	@Test
+	public void testAddStudentForClass(){
+		Long classId = null;
+		Long userId1 = null;
+		try{
+			userId1 = super.createUser("a@a.com", "p_a", "n_a");
+			
+			formData.put("name", "class1");
+			formData.put("description", "班级1");
+			
+			xhr.post("classes", formData);
+			Map<String, Object> classInfo = xhr.getContentAsJsonObject();
+			classId = Long.valueOf(classInfo.get("id").toString());
+			
+			formData.clear();
+			formData.put("userId", userId1);
+			xhr.post("classes/" + classId + "/users/", formData);
+			assertEquals(HttpURLConnection.HTTP_NO_CONTENT, xhr.getResponseCode());
+		}finally{
+			if(userId1 != null){
+				clearTables(Tables.CLASS_STUDENT);
+				removeUser(userId1);
+			}
+		}
+		
+		
+	}
 }
