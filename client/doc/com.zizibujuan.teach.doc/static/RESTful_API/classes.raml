@@ -93,11 +93,5 @@ version: v0.1
               type: integer
               required: true
       responses:
-        201:
-          description: 在指定的班级下添加学生成功
-          body:
-            application/json:
-              schema: |
-                {
-                  "id": 1
-                }
+        204:
+          description: 在指定的班级下添加学生成功,没有返回数据。
