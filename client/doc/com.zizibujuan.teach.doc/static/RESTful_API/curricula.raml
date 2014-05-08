@@ -18,10 +18,6 @@ version: v0.1
                 "type": "integer",
                 "required": true
               },
-              "teacherId": {
-                "description": "代课老师标识，支持多个，用逗号隔开",
-                "type": "string"
-              },
               "classId": {
                 "description": "班级标识",
                 "ype": "integer",
@@ -31,7 +27,7 @@ version: v0.1
                 "description": "整个课程开始日期",
                 "type": "date"
               },
-              "repeatCount": {
+              "repeatWeekCount": {
                 "description": "重复多少周,重复次数与结束日期，只能使用其中一个,优先使用这个",
                 "type": "integer",
                 "default": 0
@@ -44,9 +40,9 @@ version: v0.1
                 "type": "array",
                 "description": "一周中的重复天数，可多选, 还需要每天的讲课时间段，每天的时间段会出现不相同的情况。",
                 "properties": {
-                  "weekDay": {
+                  "dayOfWeek": {
                     "description": "一星期中的每一天",
-                    "type": "string",
+                    "type": "integer",
                     "enum": "[星期一, 星期二, 星期三, 星期四, 星期五, 星期六, 星期日]"
                   },
                   "startTime": {
@@ -72,4 +68,13 @@ version: v0.1
               {
                 "id": 1
               }
-            
+  /{curriculumnId}:
+  get:
+    description: 获取课程表详情
+    
+  /{curriculumId}/events:
+    description: 单独维护课程表中的不遵循规律的课程
+    post:
+      description:
+    delete:
+      
