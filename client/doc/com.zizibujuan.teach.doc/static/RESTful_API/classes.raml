@@ -76,7 +76,7 @@ version: v0.1
                 {
                   "message": "班级名已被使用"
                 }  
-  /{classId}/users:
+  /{classId}/students:
     description: 维护班级中的学生
     uriParameters:
       classId:
@@ -94,4 +94,23 @@ version: v0.1
               required: true
       responses:
         204:
-          description: 在指定的班级下添加学生成功,没有返回数据。
+          description: 在指定的班级下添加学生成功,没有返回数据
+  /{classId}/teachers:
+    description: 维护班级中的老师
+    uriParameters:
+      classId:
+        description: 班级标识
+        type: integer
+        required: true
+    post:
+      description: 在指定的班级下添加老师
+      body:
+        application/x-www-form-urlencoded:
+          formParameters:
+            userId:
+              description: 老师标识
+              type: integer
+              required: true
+      responses:
+        204:
+          description: 在指定的班级下添加老师成功,没有返回数据
