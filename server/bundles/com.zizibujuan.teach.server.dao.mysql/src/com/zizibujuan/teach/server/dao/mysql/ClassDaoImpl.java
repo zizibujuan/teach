@@ -39,23 +39,25 @@ public class ClassDaoImpl extends AbstractDao implements ClassDao {
 		});
 	}
 	
-	private static final String SQL_INSERT_STUDENT = "INSERT INTO "
-			+ "DRIP_CLASS_STUDENT "
+	private static final String SQL_INSERT_MEMBER = "INSERT INTO "
+			+ "DRIP_CLASS_MEMBER "
 			+ "(CLASS_ID,"
-			+ "STUDENT_ID,"
+			+ "USER_ID,"
+			+ "MEMBER_TYPE,"
 			+ "CRT_USER_ID,"
 			+ "CRT_TM) "
 			+ "VALUES "
-			+ "(?, ?, ?, now())";
+			+ "(?, ?, ?, ?, now())";
 	@Override
-	public void addStudent(Long createUserId, Long classId, Long studentId) {
-		DatabaseUtil.insert(getDataSource(), SQL_INSERT_STUDENT, new PreparedStatementSetter() {
+	public void addMember(Long createUserId, Long classId, Long userId, String userType) {
+		DatabaseUtil.insert(getDataSource(), SQL_INSERT_MEMBER, new PreparedStatementSetter() {
 			
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException {
 				ps.setLong(1, classId);
-				ps.setLong(2, studentId);
-				ps.setLong(3, createUserId);
+				ps.setLong(2, userId);
+				ps.setString(3, userType);
+				ps.setLong(4, createUserId);
 			}
 		});
 	}

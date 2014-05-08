@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import com.zizibujuan.teach.server.dao.ClassDao;
 import com.zizibujuan.teach.server.model.ClassInfo;
+import com.zizibujuan.teach.server.model.ClassMemberType;
 import com.zizibujuan.teach.server.service.ClassService;
 
 /**
@@ -26,7 +27,13 @@ public class ClassServiceImpl implements ClassService {
 	
 	@Override
 	public void addStudent(Long createUserId, Long classId, Long studentId) {
-		classDao.addStudent(createUserId, classId, studentId);
+		classDao.addMember(createUserId, classId, studentId, ClassMemberType.STUDENT);
+	}
+	
+	@Override
+	public void addTeacher(Long createUserId, Long classId, Long teacherId) {
+		classDao.addMember(createUserId, classId, teacherId, ClassMemberType.TEACHER);
+		
 	}
 	
 	public void setClassDao(ClassDao classDao) {
@@ -40,7 +47,5 @@ public class ClassServiceImpl implements ClassService {
 			this.classDao = null;
 		}
 	}
-
-
 
 }

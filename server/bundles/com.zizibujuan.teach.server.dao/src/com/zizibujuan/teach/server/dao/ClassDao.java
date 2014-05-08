@@ -1,6 +1,7 @@
 package com.zizibujuan.teach.server.dao;
 
 import com.zizibujuan.teach.server.model.ClassInfo;
+import com.zizibujuan.teach.server.model.ClassMemberType;
 
 /**
  * 班级管理数据访问接口
@@ -20,11 +21,12 @@ public interface ClassDao {
 	Long add(Long userId, ClassInfo classInfo);
 	
 	/**
-	 * 往班级中添加学生
+	 * 往班级中添加成员
 	 * 
 	 * @param createUserId 创建人标识
 	 * @param classId 班级标识
-	 * @param studentId 学生标识
+	 * @param userId 用户标识
+	 * @param userType 用户类型， 参考{@link ClassMemberType}
 	 */
-	void addStudent(Long createUserId, Long classId, Long studentId);
+	void addMember(Long createUserId, Long classId, Long userId, String userType);
 }

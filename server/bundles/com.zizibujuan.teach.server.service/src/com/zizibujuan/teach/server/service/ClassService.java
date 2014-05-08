@@ -27,5 +27,14 @@ public interface ClassService {
 	 * @param studentId 学生标识
 	 */
 	void addStudent(Long createUserId, Long classId, Long studentId);
+	
+	/**
+	 * 往班级中添加老师
+	 * 
+	 * @param createUserId 创建人标识
+	 * @param classId 班级标识
+	 * @param teacherId 老师标识
+	 */
+	void addTeacher(Long createUserId, Long classId, Long teacherId);
 
 }

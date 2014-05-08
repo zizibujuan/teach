@@ -52,12 +52,22 @@ public class ClassServlet extends BaseServlet{
 		if(path.segmentCount() == 2){
 			String resName = path.segment(1);
 			// TODO: 把资源名提取到常量类中
-			if(resName.equals("users")){
+			if(resName.equals("students")){
 				Long createUserId = ((UserInfo)UserSession.getUser(req)).getId();
 				Long classId = Long.valueOf(path.segment(0));
 				Map<String, Object> student = RequestUtil.fromJsonObject(req);
 				Long studentId = Long.valueOf(student.get("userId").toString());
 				classService.addStudent(createUserId, classId, studentId);
+				resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+				return;
+			}
+			
+			if(resName.equals("teachers")){
+				Long createUserId = ((UserInfo)UserSession.getUser(req)).getId();
+				Long classId = Long.valueOf(path.segment(0));
+				Map<String, Object> teacher = RequestUtil.fromJsonObject(req);
+				Long teacherId = Long.valueOf(teacher.get("userId").toString());
+				classService.addTeacher(createUserId, classId, teacherId);
 				resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
 				return;
 			}
