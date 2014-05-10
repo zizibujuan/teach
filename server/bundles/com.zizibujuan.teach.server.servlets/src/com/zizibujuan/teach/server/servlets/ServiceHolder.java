@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import com.zizibujuan.teach.server.service.ClassService;
 import com.zizibujuan.teach.server.service.CourseService;
+import com.zizibujuan.teach.server.service.CurriculumService;
 import com.zizibujuan.teach.server.service.LessonService;
 import com.zizibujuan.teach.server.service.PPTService;
 
@@ -102,5 +103,22 @@ public class ServiceHolder {
 	}
 	public ClassService getClassService() {
 		return classService;
+	}
+
+	private CurriculumService curriculumService;
+
+	public void setCurriculumService(CurriculumService curriculumService) {
+		logger.info("注入CurriculumService");
+		this.curriculumService = curriculumService;
+	}
+
+	public void unsetCurriculumService(CurriculumService curriculumService) {
+		logger.info("注销CurriculumService");
+		if (this.curriculumService == curriculumService) {
+			this.curriculumService = null;
+		}
+	}
+	public CurriculumService getCurriculumService() {
+		return curriculumService;
 	}
 }

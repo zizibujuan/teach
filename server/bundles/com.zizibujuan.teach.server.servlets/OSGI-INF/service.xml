@@ -37,4 +37,13 @@
 		interface="com.zizibujuan.teach.server.service.ClassService" 
 		name="classService" 
 		policy="dynamic" />
+
+	<reference 
+		bind="setCurriculumService" 
+		unbind="unsetCurriculumService" 
+		cardinality="0..1" 
+		interface="com.zizibujuan.teach.server.service.CurriculumService" 
+		name="curriculumService" 
+		policy="dynamic" />		
+		
 </scr:component>

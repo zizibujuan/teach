@@ -22,6 +22,11 @@
             alias="/classes"
             class="com.zizibujuan.teach.server.servlets.ClassServlet">
       </servlet>
+  
+      <servlet
+            alias="/curricula"
+            class="com.zizibujuan.teach.server.servlets.CurriculumServlet">
+      </servlet>    
       
     </extension>
 </plugin>
