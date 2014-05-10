@@ -37,7 +37,7 @@ version: v0.1
                 "ype": "integer",
                 "required": true
               },
-              "weeklyRepeat": {
+              "isWeeklyRepeat": {
                 "description": "是否以周为频率重复",
                 "type": "boolean",
                 "default": false
@@ -60,12 +60,23 @@ version: v0.1
           }
     responses:
       201:
-        description: 登录用户安排课时成功
+        description: 登录用户安排课时成功, 每次保存成功，都重新获取新的课程表
         body:
           application/json:
             schema: |
               {
-                "id": 1
+                "baseInfo": {
+                  "id": 1,
+                  "courseId": 1,
+                  "courseName": "course1",
+                  "classId": 1,
+                  "className": "class1"
+                },
+                "schedule": [{
+                  "day": "2014-01-01",
+                  "startTime": "9:00",
+                  "endTime": "10:00"
+                }]
               }
   /{curriculumnId}:
   get:
