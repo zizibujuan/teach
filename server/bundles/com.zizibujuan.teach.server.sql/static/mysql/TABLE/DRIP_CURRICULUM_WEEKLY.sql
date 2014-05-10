@@ -1,10 +1,10 @@
 -- 课程表设计，这张表中存储的是以周为频率的信息
 -- -----------------------------------------------------
--- Table `DRIP_CURRICULUM_PER_WEEK` 课程表周频率计划
+-- Table `DRIP_CURRICULUM_WEEKLY` 课程表周频率计划
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `DRIP_CURRICULUM_PER_WEEK`;
+DROP TABLE IF EXISTS `DRIP_CURRICULUM_WEEKLY`;
 
-CREATE  TABLE IF NOT EXISTS `DRIP_CURRICULUM` (
+CREATE  TABLE IF NOT EXISTS `DRIP_CURRICULUM_WEEKLY` (
   `DBID` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
   `START_DATE` DATE NOT NULL COMMENT '开始日期',
   `START_TIME` TIME NOT NULL COMMENT '开始时间',
