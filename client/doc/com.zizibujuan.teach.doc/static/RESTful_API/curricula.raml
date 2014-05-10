@@ -37,7 +37,7 @@ version: v0.1
                 "ype": "integer",
                 "required": true
               },
-              "repeatOnWeekly": {
+              "isWeeklyRepeat": {
                 "description": "是否以周为频率重复",
                 "type": "boolean",
                 "default": false
@@ -51,9 +51,9 @@ version: v0.1
                 "description": "整个课程结束日期",
                 "type": "date"
               },
-              "repeatDay": {
+              "repeatDays": {
                 "type": "string",
-                "description": "一周中的重复日期，可多选。",
+                "description": "一周中的重复日期，可多选，用逗号隔开。",
                 "enum": "[星期一, 星期二, 星期三, 星期四, 星期五, 星期六, 星期日]"
               }
             }
