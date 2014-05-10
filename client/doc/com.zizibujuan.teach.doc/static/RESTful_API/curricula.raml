@@ -13,6 +13,20 @@ version: v0.1
           {
             "type": "object",
             "properties": {
+              "startDate": {
+                "description": "整个课程开始日期",
+                "type": "date"
+              },
+              "startTime": {
+                "description": "开始时间",
+                "type": "string",
+                "example": "9:00"
+              },
+              "endTime": {
+                "description": "结束时间",
+                "type": "string",
+                "example": "10:00"
+              },
               "courseId": {
                 "description": "课程标识",
                 "type": "integer",
@@ -23,9 +37,10 @@ version: v0.1
                 "ype": "integer",
                 "required": true
               },
-              "startDate": {
-                "description": "整个课程开始日期",
-                "type": "date"
+              "repeatOnWeekly": {
+                "description": "是否以周为频率重复",
+                "type": "boolean",
+                "default": false
               },
               "repeatWeekCount": {
                 "description": "重复多少周,重复次数与结束日期，只能使用其中一个,优先使用这个",
@@ -36,26 +51,10 @@ version: v0.1
                 "description": "整个课程结束日期",
                 "type": "date"
               },
-              "repeatOnWeekly": {
-                "type": "array",
-                "description": "一周中的重复天数，可多选, 还需要每天的讲课时间段，每天的时间段会出现不相同的情况。",
-                "properties": {
-                  "dayOfWeek": {
-                    "description": "一星期中的每一天",
-                    "type": "integer",
-                    "enum": "[星期一, 星期二, 星期三, 星期四, 星期五, 星期六, 星期日]"
-                  },
-                  "startTime": {
-                    "description": "开始时间",
-                    "type": "string",
-                    "example": "9:00"
-                  },
-                  "endTime": {
-                    "description": "结束时间",
-                    "type": "string",
-                    "example": "10:00"
-                  }
-                }
+              "repeatDay": {
+                "type": "string",
+                "description": "一周中的重复日期，可多选。",
+                "enum": "[星期一, 星期二, 星期三, 星期四, 星期五, 星期六, 星期日]"
               }
             }
           }
