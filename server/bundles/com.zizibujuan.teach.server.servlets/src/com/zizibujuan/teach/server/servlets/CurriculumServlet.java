@@ -10,7 +10,9 @@ import org.eclipse.core.runtime.IPath;
 
 import com.zizibujuan.drip.server.util.servlet.BaseServlet;
 import com.zizibujuan.drip.server.util.servlet.RequestUtil;
+import com.zizibujuan.drip.server.util.servlet.ResponseUtil;
 import com.zizibujuan.drip.server.util.servlet.UserSession;
+import com.zizibujuan.teach.server.model.Curriculum;
 import com.zizibujuan.teach.server.model.WeeklyRepeatEvent;
 import com.zizibujuan.teach.server.service.CurriculumService;
 import com.zizibujuan.useradmin.server.model.UserInfo;
@@ -39,7 +41,9 @@ public class CurriculumServlet extends BaseServlet{
 		if(path.segmentCount() == 0){
 			Long userId = ((UserInfo)UserSession.getUser(req)).getId();
 			WeeklyRepeatEvent repeats = RequestUtil.fromJsonObject(req, WeeklyRepeatEvent.class);
-			
+			Long curriculumId = curriculumService.add(userId, repeats);
+			Curriculum curriculum = curriculumService.get(curriculumId);
+			ResponseUtil.toJSON(req, resp, curriculum, HttpServletResponse.SC_CREATED);
 			return;
 		}
 		
