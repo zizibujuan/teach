@@ -8,73 +8,34 @@ version: v0.1
   post:
     description: 登录用户在课程表中新增课程
     body:
-      application/json:
-        schema: |
-          {
-            "type": "object",
-            "properties": {
-              "startDate": {
-                "description": "整个课程开始日期",
-                "type": "date"
-              },
-              "startTime": {
-                "description": "开始时间",
-                "type": "string",
-                "example": "9:00"
-              },
-              "endTime": {
-                "description": "结束时间",
-                "type": "string",
-                "example": "10:00"
-              },
-              "courseId": {
-                "description": "课程标识",
-                "type": "integer",
-                "required": true
-              },
-              "classId": {
-                "description": "班级标识",
-                "ype": "integer",
-                "required": true
-              },
-              "isWeeklyRepeat": {
-                "description": "是否以周为频率重复",
-                "type": "boolean",
-                "default": false
-              },
-              "repeatWeekCount": {
-                "description": "重复多少周,重复次数与结束日期，只能使用其中一个,优先使用这个",
-                "type": "integer",
-                "default": 0
-              },
-              "endDate": {
-                "description": "整个课程结束日期",
-                "type": "date"
-              },
-              "repeatDays": {
-                "type": "string",
-                "description": "一周中的重复日期，可多选，用逗号隔开。",
-                "enum": "[星期一, 星期二, 星期三, 星期四, 星期五, 星期六, 星期日]"
-              }
-            }
-          }
+      application/x-www-form-urlencoded:
+        formParameters:
+          startTime:
+            description: 开始时间，日期+时间
+            type: date
+            example: "2014-01-01 9:00"
+          endTime:
+            description: 结束时间，日期+时间
+            type: date
+            example: "2014-01-01 10:00"
+          classId:
+            description: 班级标识
+            type: integer
+          courseId:
+            description: 课程标识
+            type: integer
+          lessonId:
+            description: 课时标识
+            type: integer
     responses:
       201:
-        description: 登录用户安排课时成功, 每次保存成功，都重新获取新的课程表
+        description: 登录用户安排课时成功
         body:
           application/json:
             schema: |
               {
                 "id": 1,
-                "courseId": 1,
-                "courseName": "course1",
-                "classId": 1,
-                "className": "class1",
-                "schedule": [{
-                  "day": "2014-01-01",
-                  "startTime": "9:00",
-                  "endTime": "10:00"
-                }]
+                "eventId": 1
               }
   /{curriculumnId}:
   get:
