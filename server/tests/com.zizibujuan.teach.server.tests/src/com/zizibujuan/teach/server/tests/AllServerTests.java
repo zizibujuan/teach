@@ -12,10 +12,10 @@ import com.zizibujuan.teach.server.tests.servlets.PPTServletTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-//	CourseServletTest.class,
-//	LessonServletTest.class,
-//	PPTServletTest.class,
-//	ClassServletTest.class,
+	CourseServletTest.class,
+	LessonServletTest.class,
+	PPTServletTest.class,
+	ClassServletTest.class,
 	CurriculumServletTest.class
 })
 public class AllServerTests {

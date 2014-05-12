@@ -15,6 +15,7 @@ import com.zizibujuan.cm.server.servlets.CMServiceHolder;
 import com.zizibujuan.server.git.GitUtils;
 import com.zizibujuan.server.test.servlet.AuthorizedUserServlet;
 import com.zizibujuan.teach.server.service.PPTService;
+import com.zizibujuan.teach.server.servlets.RestResource;
 
 /**
  * 演示文档管理测试用例
@@ -46,7 +47,7 @@ public class PPTServletTest extends AuthorizedUserServlet{
 		formData.put("name", "课程1");
 		formData.put("description", "课程描述1");
 		
-		xhr.post("courses", formData);
+		xhr.post(RestResource.COURSE, formData);
 		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
 		courseId = Long.valueOf(returnContent.get("id").toString());
 	}
@@ -54,7 +55,7 @@ public class PPTServletTest extends AuthorizedUserServlet{
 	public void createLesson(){
 		formData.clear();
 		formData.put("name", "lesson1");
-		xhr.post("courses/" + courseId + "/lessons", formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON, formData);
 		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
 		lessonId = Long.valueOf(returnContent.get("id").toString());
 		gitRootPath = applicationPropertyService.getForString(PPTService.KEY_GIT_ROOT_COURSE);
@@ -78,7 +79,7 @@ public class PPTServletTest extends AuthorizedUserServlet{
 	public void testAddPPT(){
 		formData.put("commitMessage", "commit1");
 		formData.put("content", "content1");
-		xhr.put("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
+		xhr.put(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON + "/" + lessonId + "/" + RestResource.PPT, formData);
 		
 		assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
 		assertTrue(GitUtils.isGitRepo(gitRootPath + courseId));
@@ -88,12 +89,12 @@ public class PPTServletTest extends AuthorizedUserServlet{
 	public void testEditPPT(){
 		formData.put("commitMessage", "commit1");
 		formData.put("content", "content1");
-		xhr.put("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
+		xhr.put(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON +"/" + lessonId + "/" + RestResource.PPT, formData);
 		
 		formData.clear();
 		formData.put("commitMessage", "commit2");
 		formData.put("content", "content2");
-		xhr.put("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
+		xhr.put(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON+ "/" + lessonId + "/" + RestResource.PPT, formData);
 		assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
 	}
 	
@@ -101,9 +102,9 @@ public class PPTServletTest extends AuthorizedUserServlet{
 	public void testGetPPT(){
 		formData.put("commitMessage", "commit1");
 		formData.put("content", "content1");
-		xhr.put("courses/" + courseId + "/lessons/" + lessonId + "/ppt", formData);
+		xhr.put(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON + "/" + lessonId + "/" + RestResource.PPT, formData);
 		
-		xhr.get("courses/" + courseId + "/lessons/" + lessonId + "/ppt");
+		xhr.get(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON+ "/" + lessonId + "/" + RestResource.PPT);
 		assertEquals(HttpURLConnection.HTTP_OK, xhr.getResponseCode());
 		Map<String, Object> map = xhr.getContentAsJsonObject();
 		assertEquals("content1", map.get("content").toString());

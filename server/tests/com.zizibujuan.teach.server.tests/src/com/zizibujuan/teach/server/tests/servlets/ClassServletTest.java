@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.zizibujuan.server.test.servlet.AuthorizedUserServlet;
+import com.zizibujuan.teach.server.servlets.RestResource;
 
 /**
  * 班级管理测试用例
@@ -38,7 +39,7 @@ public class ClassServletTest extends AuthorizedUserServlet{
 		formData.put("name", "class1");
 		formData.put("description", "班级1");
 		
-		xhr.post("classes", formData);
+		xhr.post(RestResource.CLASS, formData);
 		assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
 		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
 		assertNotNull(returnContent.get("id"));
@@ -54,13 +55,13 @@ public class ClassServletTest extends AuthorizedUserServlet{
 			formData.put("name", "class1");
 			formData.put("description", "班级1");
 			
-			xhr.post("classes", formData);
+			xhr.post(RestResource.CLASS, formData);
 			Map<String, Object> classInfo = xhr.getContentAsJsonObject();
 			classId = Long.valueOf(classInfo.get("id").toString());
 			
 			formData.clear();
 			formData.put("userId", userId1);
-			xhr.post("classes/" + classId + "/students/", formData);
+			xhr.post(RestResource.CLASS + "/" + classId + "/" + RestResource.STUDENT +"/", formData);
 			assertEquals(HttpURLConnection.HTTP_NO_CONTENT, xhr.getResponseCode());
 		}finally{
 			if(userId1 != null){
@@ -80,13 +81,13 @@ public class ClassServletTest extends AuthorizedUserServlet{
 			formData.put("name", "class1");
 			formData.put("description", "班级1");
 			
-			xhr.post("classes", formData);
+			xhr.post(RestResource.CLASS, formData);
 			Map<String, Object> classInfo = xhr.getContentAsJsonObject();
 			classId = Long.valueOf(classInfo.get("id").toString());
 			
 			formData.clear();
 			formData.put("userId", userId1);
-			xhr.post("classes/" + classId + "/teachers/", formData);
+			xhr.post(RestResource.CLASS + "/" + classId + "/" + RestResource.TEACHER + "/", formData);
 			assertEquals(HttpURLConnection.HTTP_NO_CONTENT, xhr.getResponseCode());
 		}finally{
 			if(userId1 != null){

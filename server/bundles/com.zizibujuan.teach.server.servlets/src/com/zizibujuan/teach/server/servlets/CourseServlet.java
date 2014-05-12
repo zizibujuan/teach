@@ -96,7 +96,7 @@ public class CourseServlet extends BaseServlet{
 			}
 		}else if(path.segmentCount() == 2){
 			String res = path.segment(1);
-			if(res.equals("lessons")){
+			if(res.equals(RestResource.LESSON)){
 				Long courseId = Long.valueOf(path.segment(0));
 				Long userId = ((UserInfo)UserSession.getUser(req)).getId();
 				Lesson lesson = RequestUtil.fromJsonObject(req, Lesson.class);
@@ -125,7 +125,7 @@ public class CourseServlet extends BaseServlet{
 			Long courseId = Long.valueOf(path.segment(0));
 			String res = path.segment(1);
 			String verb = path.segment(2);
-			if(res.equals("lessons")){
+			if(res.equals(RestResource.LESSON)){
 				if(verb.equals("check-name")){
 					Map<String, Object> map = RequestUtil.fromJsonObject(req);
 					String name = map.get("value").toString();
@@ -155,7 +155,7 @@ public class CourseServlet extends BaseServlet{
 		if(segmentCount == 2){
 			Long courseId = Long.valueOf(path.segment(0));
 			String res = path.segment(1);
-			if(res.equals("lessons")){
+			if(res.equals(RestResource.LESSON)){
 				PageInfo pageInfo = getPageInfo(req);
 				List<Lesson> result = lessonService.get(courseId, pageInfo);
 				ResponseUtil.toJSON(req, resp, pageInfo, result);
@@ -168,7 +168,7 @@ public class CourseServlet extends BaseServlet{
 			Long lessonId = Long.valueOf(path.segment(2));
 			String resLesson = path.segment(1);
 			String resPPT = path.segment(3);
-			if(resLesson.equals("lessons") && resPPT.equals("ppt")){
+			if(resLesson.equals(RestResource.LESSON) && resPPT.equals(RestResource.PPT)){
 				String content = pptService.getContent(courseId, lessonId);
 				Map<String, Object> result = new HashMap<String, Object>();
 				result.put("content", content);
@@ -191,7 +191,7 @@ public class CourseServlet extends BaseServlet{
 			Long lessonId = Long.valueOf(path.segment(2));
 			String resLesson = path.segment(1);
 			String resPPT = path.segment(3);
-			if(resLesson.equals("lessons") && resPPT.equals("ppt")){
+			if(resLesson.equals(RestResource.LESSON) && resPPT.equals(RestResource.PPT)){
 				Map<String, Object> pptMap = RequestUtil.fromJsonObject(req);
 				String content = pptMap.get("content").toString();
 				String commitMessage = pptMap.get("commitMessage").toString();

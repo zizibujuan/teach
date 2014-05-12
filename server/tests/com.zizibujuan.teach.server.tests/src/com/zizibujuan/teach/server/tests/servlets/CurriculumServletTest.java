@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.zizibujuan.server.test.servlet.AuthorizedUserServlet;
+import com.zizibujuan.teach.server.servlets.RestResource;
 
 /**
  * 课程表测试用例
@@ -54,14 +55,14 @@ public class CurriculumServletTest extends AuthorizedUserServlet{
 		// 添加课时
 		formData.clear();
 		formData.put("name", "lesson1");
-		xhr.post("courses/" + courseId + "/" + "lessons", formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON, formData);
 		Map<String, Object> lessonInfo = xhr.getContentAsJsonObject();
 		Long lessonId = Long.valueOf(lessonInfo.get("id").toString());
 		
 		// 添加一个班级
 		formData.clear();
 		formData.put("name", "class1");
-		xhr.post("classes", formData);
+		xhr.post(RestResource.CLASS, formData);
 		Map<String, Object> classInfo = xhr.getContentAsJsonObject();
 		Long classId = Long.valueOf(classInfo.get("id").toString());
 		
@@ -74,7 +75,7 @@ public class CurriculumServletTest extends AuthorizedUserServlet{
 		formData.put("startTime", "2014-01-01 10:00");
 		formData.put("endTime", "2014-01-01 11:00");
 		
-		xhr.post("curricula", formData);
+		xhr.post(RestResource.CURRICULUM, formData);
 		assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
 		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
 		assertNotNull(returnContent.get("id"));

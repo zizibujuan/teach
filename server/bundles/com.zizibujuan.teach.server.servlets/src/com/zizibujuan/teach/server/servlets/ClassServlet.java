@@ -52,7 +52,7 @@ public class ClassServlet extends BaseServlet{
 		if(path.segmentCount() == 2){
 			String resName = path.segment(1);
 			// TODO: 把资源名提取到常量类中
-			if(resName.equals("students")){
+			if(resName.equals(RestResource.STUDENT)){
 				Long createUserId = ((UserInfo)UserSession.getUser(req)).getId();
 				Long classId = Long.valueOf(path.segment(0));
 				Map<String, Object> student = RequestUtil.fromJsonObject(req);
@@ -62,7 +62,7 @@ public class ClassServlet extends BaseServlet{
 				return;
 			}
 			
-			if(resName.equals("teachers")){
+			if(resName.equals(RestResource.TEACHER)){
 				Long createUserId = ((UserInfo)UserSession.getUser(req)).getId();
 				Long classId = Long.valueOf(path.segment(0));
 				Map<String, Object> teacher = RequestUtil.fromJsonObject(req);

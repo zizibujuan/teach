@@ -13,6 +13,7 @@ import org.junit.Test;
 import com.zizibujuan.drip.server.util.servlet.validate.ErrorMessage;
 import com.zizibujuan.drip.server.util.servlet.validate.FieldError;
 import com.zizibujuan.server.test.servlet.AuthorizedUserServlet;
+import com.zizibujuan.teach.server.servlets.RestResource;
 
 /**
  * 课时管理测试用例
@@ -22,7 +23,6 @@ import com.zizibujuan.server.test.servlet.AuthorizedUserServlet;
  */
 public class LessonServletTest extends AuthorizedUserServlet{
 
-	private static final String URI = "lessons";
 	private Long courseId;
 	
 	@Before
@@ -46,7 +46,7 @@ public class LessonServletTest extends AuthorizedUserServlet{
 		formData.put("name", "课程1");
 		formData.put("description", "课程描述1");
 		
-		xhr.post("courses", formData);
+		xhr.post(RestResource.COURSE, formData);
 		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
 		courseId = Long.valueOf(returnContent.get("id").toString());
 	}
@@ -54,7 +54,7 @@ public class LessonServletTest extends AuthorizedUserServlet{
 	@Test
 	public void testAddLesson(){
 		formData.put("name", "lesson1");
-		xhr.post("courses/" + courseId + "/" + URI, formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON, formData);
 		
 		assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
 		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
@@ -64,7 +64,7 @@ public class LessonServletTest extends AuthorizedUserServlet{
 	@Test
 	public void testAddLessonNameCanNotBlank(){
 		formData.put("name", "");
-		xhr.post("courses/" + courseId + "/" + URI, formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON, formData);
 		
 		assertEquals(HttpURLConnection.HTTP_PRECON_FAILED, xhr.getResponseCode());
 		FieldError returnContent = xhr.getContentAsJsonObject(FieldError.class);
@@ -77,7 +77,7 @@ public class LessonServletTest extends AuthorizedUserServlet{
 	@Test
 	public void testAddLessonNameMaxLength32(){
 		formData.put("name", StringUtils.repeat("a", 33));
-		xhr.post("courses/" + courseId + "/" + URI, formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON, formData);
 		
 		assertEquals(HttpURLConnection.HTTP_PRECON_FAILED, xhr.getResponseCode());
 		FieldError returnContent = xhr.getContentAsJsonObject(FieldError.class);
@@ -90,11 +90,11 @@ public class LessonServletTest extends AuthorizedUserServlet{
 	@Test
 	public void testAddLessonDuplicateName(){
 		formData.put("name", "lesson1");
-		xhr.post("courses/" + courseId + "/" + URI, formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON, formData);
 		
 		formData.clear();
 		formData.put("name", "lesson1");
-		xhr.post("courses/" + courseId + "/" + URI, formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON, formData);
 		
 		assertEquals(HttpURLConnection.HTTP_PRECON_FAILED, xhr.getResponseCode());
 		FieldError returnContent = xhr.getContentAsJsonObject(FieldError.class);
@@ -107,18 +107,18 @@ public class LessonServletTest extends AuthorizedUserServlet{
 	@Test
 	public void testCheckLessonNameUnique(){
 		formData.put("value", "lesson1");
-		xhr.post("courses/" + courseId + "/" + URI + "/check-name", formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON + "/check-name", formData);
 		assertEquals(HttpURLConnection.HTTP_OK, xhr.getResponseCode());
 		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
 		assertEquals("lesson1", returnContent.get("name"));
 		
 		formData.clear();
 		formData.put("name", "lesson1");
-		xhr.post("courses/" + courseId + "/" + URI, formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON, formData);
 		
 		formData.clear();
 		formData.put("value", "lesson1");
-		xhr.post("courses/" + courseId + "/" + URI + "/check-name", formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON + "/check-name", formData);
 		assertEquals(HttpURLConnection.HTTP_FORBIDDEN, xhr.getResponseCode());
 		returnContent = xhr.getContentAsJsonObject();
 		assertEquals("名称已被使用", returnContent.get("message"));
@@ -127,17 +127,17 @@ public class LessonServletTest extends AuthorizedUserServlet{
 	@Test
 	public void testGetLessons(){
 		formData.put("name", "lesson1");
-		xhr.post("courses/" + courseId + "/" + URI, formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON, formData);
 		
-		xhr.get("courses/" + courseId + "/" + URI);
+		xhr.get(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON);
 		assertEquals(HttpURLConnection.HTTP_OK, xhr.getResponseCode());
 		assertEquals(1, xhr.getContentAsJsonArray().size());
 		
 		formData.clear();
 		formData.put("name", "lesson2");
-		xhr.post("courses/" + courseId + "/" + URI, formData);
+		xhr.post(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON, formData);
 		
-		xhr.get("courses/" + courseId + "/" + URI);
+		xhr.get(RestResource.COURSE + "/" + courseId + "/" + RestResource.LESSON);
 		assertEquals(HttpURLConnection.HTTP_OK, xhr.getResponseCode());
 		assertEquals(2, xhr.getContentAsJsonArray().size());
 	}

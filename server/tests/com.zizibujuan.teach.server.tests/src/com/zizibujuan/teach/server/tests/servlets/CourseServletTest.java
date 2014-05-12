@@ -14,6 +14,7 @@ import org.junit.Test;
 import com.zizibujuan.drip.server.util.servlet.validate.ErrorMessage;
 import com.zizibujuan.drip.server.util.servlet.validate.FieldError;
 import com.zizibujuan.server.test.servlet.AuthorizedUserServlet;
+import com.zizibujuan.teach.server.servlets.RestResource;
 
 /**
  * 课程管理
@@ -22,8 +23,6 @@ import com.zizibujuan.server.test.servlet.AuthorizedUserServlet;
  * @since 0.0.1
  */
 public class CourseServletTest extends AuthorizedUserServlet{
-
-	private static final String URI = "courses";
 	
 	@Before
 	public void setUp(){
@@ -44,7 +43,7 @@ public class CourseServletTest extends AuthorizedUserServlet{
 		formData.put("name", "课程1");
 		formData.put("description", "课程描述1");
 		
-		xhr.post(URI, formData);
+		xhr.post(RestResource.COURSE, formData);
 		assertEquals(HttpURLConnection.HTTP_CREATED, xhr.getResponseCode());
 		Map<String, Object> returnContent = xhr.getContentAsJsonObject();
 		assertNotNull(returnContent.get("id"));
@@ -54,7 +53,7 @@ public class CourseServletTest extends AuthorizedUserServlet{
 	public void testAddCourseNameCanNotBlank(){
 		formData.put("name", "");
 		formData.put("description", "课程描述1");
-		xhr.post(URI, formData);
+		xhr.post(RestResource.COURSE, formData);
 		
 		assertEquals(HttpURLConnection.HTTP_PRECON_FAILED, xhr.getResponseCode());
 		FieldError returnContent = xhr.getContentAsJsonObject(FieldError.class);
@@ -68,7 +67,7 @@ public class CourseServletTest extends AuthorizedUserServlet{
 	public void testAddCourseNameMaxLength32(){
 		formData.put("name", StringUtils.repeat("a", 33));
 		formData.put("description", "课程描述1");
-		xhr.post(URI, formData);
+		xhr.post(RestResource.COURSE, formData);
 		
 		assertEquals(HttpURLConnection.HTTP_PRECON_FAILED, xhr.getResponseCode());
 		FieldError returnContent = xhr.getContentAsJsonObject(FieldError.class);
@@ -82,12 +81,12 @@ public class CourseServletTest extends AuthorizedUserServlet{
 	public void testAddCourseDuplicateName(){
 		formData.put("name", "课程1");
 		formData.put("description", "课程描述1");
-		xhr.post(URI, formData);
+		xhr.post(RestResource.COURSE, formData);
 		
 		formData.clear();
 		formData.put("name", "课程1");
 		formData.put("description", "课程描述2");
-		xhr.post(URI, formData);
+		xhr.post(RestResource.COURSE, formData);
 		
 		assertEquals(HttpURLConnection.HTTP_PRECON_FAILED, xhr.getResponseCode());
 		FieldError returnContent = xhr.getContentAsJsonObject(FieldError.class);
@@ -108,7 +107,7 @@ public class CourseServletTest extends AuthorizedUserServlet{
 		formData.clear();
 		formData.put("name", "课程1");
 		formData.put("description", "课程描述1");
-		xhr.post(URI, formData);
+		xhr.post(RestResource.COURSE, formData);
 		
 		formData.clear();
 		formData.put("value", "课程1");
