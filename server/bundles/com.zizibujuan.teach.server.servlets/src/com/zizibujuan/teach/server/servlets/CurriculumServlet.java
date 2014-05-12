@@ -1,6 +1,8 @@
 package com.zizibujuan.teach.server.servlets;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +15,6 @@ import com.zizibujuan.drip.server.util.servlet.RequestUtil;
 import com.zizibujuan.drip.server.util.servlet.ResponseUtil;
 import com.zizibujuan.drip.server.util.servlet.UserSession;
 import com.zizibujuan.teach.server.model.Curriculum;
-import com.zizibujuan.teach.server.model.WeeklyRepeatEvent;
 import com.zizibujuan.teach.server.service.CurriculumService;
 import com.zizibujuan.useradmin.server.model.UserInfo;
 
@@ -40,10 +41,12 @@ public class CurriculumServlet extends BaseServlet{
 		IPath path = getPath(req);
 		if(path.segmentCount() == 0){
 			Long userId = ((UserInfo)UserSession.getUser(req)).getId();
-			WeeklyRepeatEvent repeats = RequestUtil.fromJsonObject(req, WeeklyRepeatEvent.class);
-			Long curriculumId = curriculumService.add(userId, repeats);
-			Curriculum curriculum = curriculumService.get(curriculumId);
-			ResponseUtil.toJSON(req, resp, curriculum, HttpServletResponse.SC_CREATED);
+			Curriculum curriculum = RequestUtil.fromJsonObject(req, Curriculum.class);
+			Long curriculumId = curriculumService.add(userId, curriculum);
+			
+			Map<String, Object> result = new HashMap<String, Object>();
+			result.put("id", curriculumId);
+			ResponseUtil.toJSON(req, resp, result, HttpServletResponse.SC_CREATED);
 			return;
 		}
 		

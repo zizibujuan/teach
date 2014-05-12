@@ -1,6 +1,6 @@
 package com.zizibujuan.teach.server.model;
 
-import java.util.List;
+import java.util.Date;
 
 /**
  * 课程表
@@ -13,9 +13,14 @@ public class Curriculum {
 	private Long id;
 	private Long courseId;
 	private Long classId;
+	private Long lessonId;
+	private Date startTime;
+	private Date endTime;
+	
 	private String courseName;
 	private String className;
-	private List<TimePeriod> schedule;
+	private String lessonName;
+	
 	public Long getId() {
 		return id;
 	}
@@ -34,6 +39,24 @@ public class Curriculum {
 	public void setClassId(Long classId) {
 		this.classId = classId;
 	}
+	public Long getLessonId() {
+		return lessonId;
+	}
+	public void setLessonId(Long lessonId) {
+		this.lessonId = lessonId;
+	}
+	public Date getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
+	public Date getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
 	public String getCourseName() {
 		return courseName;
 	}
@@ -46,10 +69,10 @@ public class Curriculum {
 	public void setClassName(String className) {
 		this.className = className;
 	}
-	public List<TimePeriod> getSchedule() {
-		return schedule;
+	public String getLessonName() {
+		return lessonName;
 	}
-	public void setSchedule(List<TimePeriod> schedule) {
-		this.schedule = schedule;
+	public void setLessonName(String lessonName) {
+		this.lessonName = lessonName;
 	}
 }

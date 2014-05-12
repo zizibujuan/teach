@@ -13,6 +13,4 @@ public abstract class Tables {
 	public static final String CLASS = "DRIP_CLASS";
 	public static final String CLASS_MEMBER = "DRIP_CLASS_MEMBER";
 	public static final String CURRICULUM = "DRIP_CURRICULUM";
-	public static final String CURRICULUM_WEEKLY = "DRIP_CURRICULUM_WEEKLY";
-	public static final String CURRICULUM_SCHEDULE = "DRIP_CURRICULUM_SCHEDULE";
 }
