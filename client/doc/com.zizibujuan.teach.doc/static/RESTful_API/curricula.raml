@@ -36,24 +36,24 @@ version: v0.1
               {
                 "id": ""
               }
-  /{curriculumId}/events:
+  get:
     description: 获取登录用户即将开始的课程，默认为提前15分钟通知
-    get:
-      queryParameters:
-        type:
-          type: string
-          required: true
-          default: "incoming"
-          example: "incoming"
-      responses:
-        200:
-          description: |
-            如果type为"incoming",则获取即将开始的课程，如果没有则返回空数组
-          body:
-            application/json:
-              schema: |
-                [{
-                  "lessonId": 1,
-                  "courseName": "course1",
-                  "lessonName": "lesson1"
-                }]
+    queryParameters:
+      type:
+        type: string
+        required: true
+        default: "incoming"
+        example: "incoming"
+    responses:
+      200:
+        description: |
+          如果type为"incoming",则获取即将开始的课程，如果没有则返回空数组
+        body:
+          application/json:
+            schema: |
+              [{
+                "lessonId": 1,
+                "courseName": "course1",
+                "lessonName": "lesson1"
+                "classMemberType": "01为老师，02为学生"
+              }]
