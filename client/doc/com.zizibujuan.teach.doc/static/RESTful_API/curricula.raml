@@ -47,7 +47,8 @@ version: v0.1
     responses:
       200:
         description: |
-          如果type为"incoming",则获取即将开始的课程，如果没有则返回空数组
+          如果type为"incoming",则获取即将开始的课程，如果没有则返回空数组.
+          计时应统一取服务器端的时间,在客户端只计算时间间隔。
         body:
           application/json:
             schema: |
@@ -55,5 +56,8 @@ version: v0.1
                 "lessonId": 1,
                 "courseName": "course1",
                 "lessonName": "lesson1"
+                "lessonStartTime": "",
+                "lessonEndTime": "",
+                "currentTime": "",
                 "classMemberType": "01为老师，02为学生"
               }]
