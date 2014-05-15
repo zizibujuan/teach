@@ -1,0 +1,916 @@
+587  [Component Resolve Thread] INFO  c.z.t.s.s.impl.CourseServiceImpl - 注入CourseDao
+589  [Component Resolve Thread] INFO  c.z.t.server.servlets.ServiceHolder - 注入CourseService
+609  [Component Resolve Thread] INFO  c.z.t.s.s.impl.LessonServiceImpl - 注入LessonDao
+610  [Component Resolve Thread] INFO  c.z.t.server.servlets.ServiceHolder - 注入LessonService
+634  [Component Resolve Thread] INFO  c.z.t.s.service.impl.PPTServiceImpl - 注入applicationPropertyDao
+638  [Component Resolve Thread] INFO  c.z.t.server.servlets.ServiceHolder - 注入PPTService
+664  [Component Resolve Thread] INFO  c.z.t.s.s.impl.ClassServiceImpl - 注入ClassDao
+664  [Component Resolve Thread] INFO  c.z.t.server.servlets.ServiceHolder - 注入ClassService
+686  [Component Resolve Thread] INFO  c.z.t.s.s.i.CurriculumServiceImpl - 注入CurriculumDao
+686  [Component Resolve Thread] INFO  c.z.t.server.servlets.ServiceHolder - 注入CurriculumService
+909  [Component Resolve Thread] INFO  c.z.t.s.service.impl.PPTServiceImpl - 注入userDao
+1985 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Host: localhost:8199
+
+2551 [qtp471244220-27] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+2818 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 41
+Cookie: zzbj_user_token=70eb956251fc4512abc0c65caa571b58; logged_in=1; JSESSIONID=z0232axc6x4o17lkegxahf6rc; zzbj_user=test
+Host: localhost:8199
+
+3209 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=70eb956251fc4512abc0c65caa571b58; logged_in=1; JSESSIONID=z0232axc6x4o17lkegxahf6rc; zzbj_user=test
+Host: localhost:8199
+
+3229 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=70eb956251fc4512abc0c65caa571b58; logged_in=1; JSESSIONID=z0232axc6x4o17lkegxahf6rc; zzbj_user=test
+Host: localhost:8199
+
+3322 [qtp471244220-30] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+3428 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/check-name
+POST /courses/check-name?owner=27 Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 19
+Cookie: zzbj_user_token=4a46f28bb8fd437d8879808ced32e4ed; logged_in=1; JSESSIONID=1axfvdorsoh5q1rdnt1f98r0xk; zzbj_user=test
+Host: localhost:8199
+
+3441 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=4a46f28bb8fd437d8879808ced32e4ed; logged_in=1; JSESSIONID=1axfvdorsoh5q1rdnt1f98r0xk; zzbj_user=test
+Host: localhost:8199
+
+3517 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/check-name
+POST /courses/check-name?owner=27 Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 19
+Cookie: zzbj_user_token=4a46f28bb8fd437d8879808ced32e4ed; logged_in=1; JSESSIONID=1axfvdorsoh5q1rdnt1f98r0xk; zzbj_user=test
+Host: localhost:8199
+
+3719 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=4a46f28bb8fd437d8879808ced32e4ed; logged_in=1; JSESSIONID=1axfvdorsoh5q1rdnt1f98r0xk; zzbj_user=test
+Host: localhost:8199
+
+3729 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=4a46f28bb8fd437d8879808ced32e4ed; logged_in=1; JSESSIONID=1axfvdorsoh5q1rdnt1f98r0xk; zzbj_user=test
+Host: localhost:8199
+
+3866 [qtp471244220-30] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+3971 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=a28ee9bb46fd4928bf2275f4f5255c16; logged_in=1; JSESSIONID=1mdgwsh4rgpy01pi571hvwa94u; zzbj_user=test
+Host: localhost:8199
+
+4185 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=a28ee9bb46fd4928bf2275f4f5255c16; logged_in=1; JSESSIONID=1mdgwsh4rgpy01pi571hvwa94u; zzbj_user=test
+Host: localhost:8199
+
+4193 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=a28ee9bb46fd4928bf2275f4f5255c16; logged_in=1; JSESSIONID=1mdgwsh4rgpy01pi571hvwa94u; zzbj_user=test
+Host: localhost:8199
+
+4263 [qtp471244220-33] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+4483 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=5ce2b4cb24e0426cbcc9b27e3c0d2f77; logged_in=1; JSESSIONID=15wd2ytmadt5s1uszkl937xxkp; zzbj_user=test
+Host: localhost:8199
+
+4487 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=5ce2b4cb24e0426cbcc9b27e3c0d2f77; logged_in=1; JSESSIONID=15wd2ytmadt5s1uszkl937xxkp; zzbj_user=test
+Host: localhost:8199
+
+4533 [qtp471244220-30] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+4606 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=972a8f0a0d964608b826ce2bbb8ec15c; logged_in=1; JSESSIONID=1udl3mu5740j31rv7vywffsvbi; zzbj_user=test
+Host: localhost:8199
+
+4662 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=972a8f0a0d964608b826ce2bbb8ec15c; logged_in=1; JSESSIONID=1udl3mu5740j31rv7vywffsvbi; zzbj_user=test
+Host: localhost:8199
+
+4873 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=972a8f0a0d964608b826ce2bbb8ec15c; logged_in=1; JSESSIONID=1udl3mu5740j31rv7vywffsvbi; zzbj_user=test
+Host: localhost:8199
+
+4877 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=972a8f0a0d964608b826ce2bbb8ec15c; logged_in=1; JSESSIONID=1udl3mu5740j31rv7vywffsvbi; zzbj_user=test
+Host: localhost:8199
+
+4920 [qtp471244220-30] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+4998 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 74
+Cookie: zzbj_user_token=fc39b51218b043a68f4b4ed1cfc94e37; logged_in=1; JSESSIONID=1015icc03nkncup3vvv1etrid; zzbj_user=test
+Host: localhost:8199
+
+5139 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=fc39b51218b043a68f4b4ed1cfc94e37; logged_in=1; JSESSIONID=1015icc03nkncup3vvv1etrid; zzbj_user=test
+Host: localhost:8199
+
+5143 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Host: localhost:8199
+
+5192 [qtp471244220-33] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+5284 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=4acf094407734cdaaf257617a6275fff; logged_in=1; JSESSIONID=1255nio47tdmvfe18rlqmaafk; zzbj_user=test
+Host: localhost:8199
+
+5321 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/14/lessons/check-name
+POST /courses/14/lessons/check-name Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 19
+Cookie: zzbj_user_token=4acf094407734cdaaf257617a6275fff; logged_in=1; JSESSIONID=1255nio47tdmvfe18rlqmaafk; zzbj_user=test
+Host: localhost:8199
+
+5332 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/14/lessons
+POST /courses/14/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=4acf094407734cdaaf257617a6275fff; logged_in=1; JSESSIONID=1255nio47tdmvfe18rlqmaafk; zzbj_user=test
+Host: localhost:8199
+
+5395 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/14/lessons/check-name
+POST /courses/14/lessons/check-name Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 19
+Cookie: zzbj_user_token=4acf094407734cdaaf257617a6275fff; logged_in=1; JSESSIONID=1255nio47tdmvfe18rlqmaafk; zzbj_user=test
+Host: localhost:8199
+
+5761 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=4acf094407734cdaaf257617a6275fff; logged_in=1; JSESSIONID=1255nio47tdmvfe18rlqmaafk; zzbj_user=test
+Host: localhost:8199
+
+5765 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=4acf094407734cdaaf257617a6275fff; logged_in=1; JSESSIONID=1255nio47tdmvfe18rlqmaafk; zzbj_user=test
+Host: localhost:8199
+
+5840 [qtp471244220-33] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+5950 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=f21a48bafe764c69a0f8db8be02ca8e3; logged_in=1; JSESSIONID=d2tpr2vlyfd416jaiqyek8saf; zzbj_user=test
+Host: localhost:8199
+
+5984 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/15/lessons
+POST /courses/15/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 44
+Cookie: zzbj_user_token=f21a48bafe764c69a0f8db8be02ca8e3; logged_in=1; JSESSIONID=d2tpr2vlyfd416jaiqyek8saf; zzbj_user=test
+Host: localhost:8199
+
+6160 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=f21a48bafe764c69a0f8db8be02ca8e3; logged_in=1; JSESSIONID=d2tpr2vlyfd416jaiqyek8saf; zzbj_user=test
+Host: localhost:8199
+
+6164 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=f21a48bafe764c69a0f8db8be02ca8e3; logged_in=1; JSESSIONID=d2tpr2vlyfd416jaiqyek8saf; zzbj_user=test
+Host: localhost:8199
+
+6238 [qtp471244220-33] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+6317 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=29a171cb3711433b8e3de0df91eafbe3; logged_in=1; JSESSIONID=u8yp74qbt1cc1ly9muor970ky; zzbj_user=test
+Host: localhost:8199
+
+6361 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/16/lessons
+POST /courses/16/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 11
+Cookie: zzbj_user_token=29a171cb3711433b8e3de0df91eafbe3; logged_in=1; JSESSIONID=u8yp74qbt1cc1ly9muor970ky; zzbj_user=test
+Host: localhost:8199
+
+6528 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=29a171cb3711433b8e3de0df91eafbe3; logged_in=1; JSESSIONID=u8yp74qbt1cc1ly9muor970ky; zzbj_user=test
+Host: localhost:8199
+
+6531 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=29a171cb3711433b8e3de0df91eafbe3; logged_in=1; JSESSIONID=u8yp74qbt1cc1ly9muor970ky; zzbj_user=test
+Host: localhost:8199
+
+6581 [qtp471244220-27] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+6672 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=5791399473c444e584766ab5571aba77; logged_in=1; JSESSIONID=1lbogft19w19t1ki1n6sgo17c4; zzbj_user=test
+Host: localhost:8199
+
+6717 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/17/lessons
+POST /courses/17/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=5791399473c444e584766ab5571aba77; logged_in=1; JSESSIONID=1lbogft19w19t1ki1n6sgo17c4; zzbj_user=test
+Host: localhost:8199
+
+6761 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/17/lessons
+GET /courses/17/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=5791399473c444e584766ab5571aba77; logged_in=1; JSESSIONID=1lbogft19w19t1ki1n6sgo17c4; zzbj_user=test
+Host: localhost:8199
+
+6793 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/17/lessons
+POST /courses/17/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=5791399473c444e584766ab5571aba77; logged_in=1; JSESSIONID=1lbogft19w19t1ki1n6sgo17c4; zzbj_user=test
+Host: localhost:8199
+
+6831 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/17/lessons
+GET /courses/17/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=5791399473c444e584766ab5571aba77; logged_in=1; JSESSIONID=1lbogft19w19t1ki1n6sgo17c4; zzbj_user=test
+Host: localhost:8199
+
+7061 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=5791399473c444e584766ab5571aba77; logged_in=1; JSESSIONID=1lbogft19w19t1ki1n6sgo17c4; zzbj_user=test
+Host: localhost:8199
+
+7066 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=5791399473c444e584766ab5571aba77; logged_in=1; JSESSIONID=1lbogft19w19t1ki1n6sgo17c4; zzbj_user=test
+Host: localhost:8199
+
+7121 [qtp471244220-30] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+7194 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=4330c984c6634166afb64815e7aa8397; logged_in=1; JSESSIONID=1aabu0lempmqdmyv45dqrdyzm; zzbj_user=test
+Host: localhost:8199
+
+7231 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/18/lessons
+POST /courses/18/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=4330c984c6634166afb64815e7aa8397; logged_in=1; JSESSIONID=1aabu0lempmqdmyv45dqrdyzm; zzbj_user=test
+Host: localhost:8199
+
+7482 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=4330c984c6634166afb64815e7aa8397; logged_in=1; JSESSIONID=1aabu0lempmqdmyv45dqrdyzm; zzbj_user=test
+Host: localhost:8199
+
+7486 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=4330c984c6634166afb64815e7aa8397; logged_in=1; JSESSIONID=1aabu0lempmqdmyv45dqrdyzm; zzbj_user=test
+Host: localhost:8199
+
+7543 [qtp471244220-27] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+7629 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=db53b3559b3d4a50bdc8197639ce78aa; logged_in=1; JSESSIONID=1vpvn81sgw5cyk6w7bff7yqce; zzbj_user=test
+Host: localhost:8199
+
+7661 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/19/lessons
+POST /courses/19/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=db53b3559b3d4a50bdc8197639ce78aa; logged_in=1; JSESSIONID=1vpvn81sgw5cyk6w7bff7yqce; zzbj_user=test
+Host: localhost:8199
+
+7707 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/19/lessons
+POST /courses/19/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=db53b3559b3d4a50bdc8197639ce78aa; logged_in=1; JSESSIONID=1vpvn81sgw5cyk6w7bff7yqce; zzbj_user=test
+Host: localhost:8199
+
+7940 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=db53b3559b3d4a50bdc8197639ce78aa; logged_in=1; JSESSIONID=1vpvn81sgw5cyk6w7bff7yqce; zzbj_user=test
+Host: localhost:8199
+
+7948 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Host: localhost:8199
+
+8018 [qtp471244220-34] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+8106 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=a8fcf3bafe694a55a401ef47e397b726; logged_in=1; JSESSIONID=1uyc6p6lq4if71iohbk55u6qnm; zzbj_user=test
+Host: localhost:8199
+
+8152 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/20/lessons
+POST /courses/20/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=a8fcf3bafe694a55a401ef47e397b726; logged_in=1; JSESSIONID=1uyc6p6lq4if71iohbk55u6qnm; zzbj_user=test
+Host: localhost:8199
+
+8202 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/20/lessons/10/ppt
+PUT /courses/20/lessons/10/ppt Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Length: 48
+Cookie: zzbj_user_token=a8fcf3bafe694a55a401ef47e397b726; logged_in=1; JSESSIONID=1uyc6p6lq4if71iohbk55u6qnm; zzbj_user=test
+Host: localhost:8199
+
+8223 [qtp471244220-33] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE DBID=?]
+8805 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=a8fcf3bafe694a55a401ef47e397b726; logged_in=1; JSESSIONID=1uyc6p6lq4if71iohbk55u6qnm; zzbj_user=test
+Host: localhost:8199
+
+8837 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=a8fcf3bafe694a55a401ef47e397b726; logged_in=1; JSESSIONID=1uyc6p6lq4if71iohbk55u6qnm; zzbj_user=test
+Host: localhost:8199
+
+8887 [qtp471244220-34] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+8984 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=391aa9639453470ab0bc17d07ce15d31; logged_in=1; JSESSIONID=1t660ed160qwa1xus7su3p4kqj; zzbj_user=test
+Host: localhost:8199
+
+9019 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/21/lessons
+POST /courses/21/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=391aa9639453470ab0bc17d07ce15d31; logged_in=1; JSESSIONID=1t660ed160qwa1xus7su3p4kqj; zzbj_user=test
+Host: localhost:8199
+
+9087 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/21/lessons/11/ppt
+PUT /courses/21/lessons/11/ppt Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Length: 48
+Cookie: zzbj_user_token=391aa9639453470ab0bc17d07ce15d31; logged_in=1; JSESSIONID=1t660ed160qwa1xus7su3p4kqj; zzbj_user=test
+Host: localhost:8199
+
+9100 [qtp471244220-34] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE DBID=?]
+9155 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/21/lessons/11/ppt
+GET /courses/21/lessons/11/ppt Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=391aa9639453470ab0bc17d07ce15d31; logged_in=1; JSESSIONID=1t660ed160qwa1xus7su3p4kqj; zzbj_user=test
+Host: localhost:8199
+
+9408 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=391aa9639453470ab0bc17d07ce15d31; logged_in=1; JSESSIONID=1t660ed160qwa1xus7su3p4kqj; zzbj_user=test
+Host: localhost:8199
+
+9434 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=391aa9639453470ab0bc17d07ce15d31; logged_in=1; JSESSIONID=1t660ed160qwa1xus7su3p4kqj; zzbj_user=test
+Host: localhost:8199
+
+9477 [qtp471244220-34] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+9562 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 48
+Cookie: zzbj_user_token=f7603557e14f429da0072cde04fd5a4a; logged_in=1; JSESSIONID=174ujhjinrmbzxu8f94ppaayq; zzbj_user=test
+Host: localhost:8199
+
+9595 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/22/lessons
+POST /courses/22/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=f7603557e14f429da0072cde04fd5a4a; logged_in=1; JSESSIONID=174ujhjinrmbzxu8f94ppaayq; zzbj_user=test
+Host: localhost:8199
+
+9633 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/22/lessons/12/ppt
+PUT /courses/22/lessons/12/ppt Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Length: 48
+Cookie: zzbj_user_token=f7603557e14f429da0072cde04fd5a4a; logged_in=1; JSESSIONID=174ujhjinrmbzxu8f94ppaayq; zzbj_user=test
+Host: localhost:8199
+
+9639 [qtp471244220-34] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE DBID=?]
+9686 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/22/lessons/12/ppt
+PUT /courses/22/lessons/12/ppt Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Length: 48
+Cookie: zzbj_user_token=f7603557e14f429da0072cde04fd5a4a; logged_in=1; JSESSIONID=174ujhjinrmbzxu8f94ppaayq; zzbj_user=test
+Host: localhost:8199
+
+9691 [qtp471244220-33] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE DBID=?]
+9939 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=f7603557e14f429da0072cde04fd5a4a; logged_in=1; JSESSIONID=174ujhjinrmbzxu8f94ppaayq; zzbj_user=test
+Host: localhost:8199
+
+10042 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Host: localhost:8199
+
+10099 [qtp471244220-34] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+10262 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /classes Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 41
+Cookie: zzbj_user_token=2a931a0a7dbd4bfb910d45d29b672c87; logged_in=1; JSESSIONID=qemp4zmimp0w13octy9vnnqgp; zzbj_user=test
+Host: localhost:8199
+
+10318 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/11/teachers/
+POST /classes/11/teachers/ Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 13
+Cookie: zzbj_user_token=2a931a0a7dbd4bfb910d45d29b672c87; logged_in=1; JSESSIONID=qemp4zmimp0w13octy9vnnqgp; zzbj_user=test
+Host: localhost:8199
+
+10816 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=2a931a0a7dbd4bfb910d45d29b672c87; logged_in=1; JSESSIONID=qemp4zmimp0w13octy9vnnqgp; zzbj_user=test
+Host: localhost:8199
+
+10819 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=2a931a0a7dbd4bfb910d45d29b672c87; logged_in=1; JSESSIONID=qemp4zmimp0w13octy9vnnqgp; zzbj_user=test
+Host: localhost:8199
+
+10866 [qtp471244220-27] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+10950 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /classes Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 41
+Cookie: zzbj_user_token=b13b2eb3ebf7486799d28f0c08176bbb; logged_in=1; JSESSIONID=nkory25s8xyg1sxneu8y3l5a1; zzbj_user=test
+Host: localhost:8199
+
+11149 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=b13b2eb3ebf7486799d28f0c08176bbb; logged_in=1; JSESSIONID=nkory25s8xyg1sxneu8y3l5a1; zzbj_user=test
+Host: localhost:8199
+
+11154 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Cookie: zzbj_user_token=b13b2eb3ebf7486799d28f0c08176bbb; logged_in=1; JSESSIONID=nkory25s8xyg1sxneu8y3l5a1; zzbj_user=test
+Host: localhost:8199
+
+11199 [qtp471244220-33] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+11349 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /classes Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 41
+Cookie: zzbj_user_token=fd9e7d9a37914f3fa0b526d0d2c0e01d; logged_in=1; JSESSIONID=1vu2f9djsurjx1jo9v3k8k2zgu; zzbj_user=test
+Host: localhost:8199
+
+11384 [qtp471244220-30] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/13/students/
+POST /classes/13/students/ Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 13
+Cookie: zzbj_user_token=fd9e7d9a37914f3fa0b526d0d2c0e01d; logged_in=1; JSESSIONID=1vu2f9djsurjx1jo9v3k8k2zgu; zzbj_user=test
+Host: localhost:8199
+
+11760 [qtp471244220-27] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=fd9e7d9a37914f3fa0b526d0d2c0e01d; logged_in=1; JSESSIONID=1vu2f9djsurjx1jo9v3k8k2zgu; zzbj_user=test
+Host: localhost:8199
+
+11768 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /users Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 71
+Host: localhost:8199
+
+11998 [qtp471244220-33] DEBUG c.z.d.server.util.dao.DatabaseUtil - Query for object [SELECT DBID,LOGIN_NAME,EMAIL, NICK_NAME,SEX FROM DRIP_USER_INFO WHERE EMAIL = ? AND LOGIN_PWD = ?]
+12072 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /courses Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=be76b5f8e7fc47ee9ad450798c43c01c; logged_in=1; JSESSIONID=ygu89mf6fn8ri6iv3gehs86c; zzbj_user=test
+Host: localhost:8199
+
+12116 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:/23/lessons
+POST /courses/23/lessons Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 18
+Cookie: zzbj_user_token=be76b5f8e7fc47ee9ad450798c43c01c; logged_in=1; JSESSIONID=ygu89mf6fn8ri6iv3gehs86c; zzbj_user=test
+Host: localhost:8199
+
+12151 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /classes Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 17
+Cookie: zzbj_user_token=be76b5f8e7fc47ee9ad450798c43c01c; logged_in=1; JSESSIONID=ygu89mf6fn8ri6iv3gehs86c; zzbj_user=test
+Host: localhost:8199
+
+12205 [qtp471244220-34] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+POST /curricula Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 102
+Cookie: zzbj_user_token=be76b5f8e7fc47ee9ad450798c43c01c; logged_in=1; JSESSIONID=ygu89mf6fn8ri6iv3gehs86c; zzbj_user=test
+Host: localhost:8199
+
+12552 [qtp471244220-33] DEBUG c.z.d.s.util.servlet.BaseServlet - 
+pathInfo:null
+GET /logout Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Java/1.8.0
+Cookie: zzbj_user_token=be76b5f8e7fc47ee9ad450798c43c01c; logged_in=1; JSESSIONID=ygu89mf6fn8ri6iv3gehs86c; zzbj_user=test
+Host: localhost:8199
+
+12571 [main] INFO  c.z.t.s.service.impl.PPTServiceImpl - 注销applicationPropertyDao
+12572 [main] INFO  c.z.t.s.s.impl.ClassServiceImpl - 注销ClassDao
+12573 [main] INFO  c.z.t.s.s.impl.CourseServiceImpl - 注销CourseDao
+12574 [main] INFO  c.z.t.s.s.i.CurriculumServiceImpl - 注销CurriculumDao
+12574 [main] INFO  c.z.t.s.s.impl.LessonServiceImpl - 注销LessonDao
+12575 [main] INFO  c.z.t.server.servlets.ServiceHolder - 注销ClassService
+12576 [main] INFO  c.z.t.server.servlets.ServiceHolder - 注销CourseService
+12576 [main] INFO  c.z.t.server.servlets.ServiceHolder - 注销CurriculumService
+12577 [main] INFO  c.z.t.server.servlets.ServiceHolder - 注销LessonService
+12578 [main] INFO  c.z.t.server.servlets.ServiceHolder - 注销PPTService
+12578 [main] INFO  c.z.t.s.service.impl.PPTServiceImpl - 注销userDao

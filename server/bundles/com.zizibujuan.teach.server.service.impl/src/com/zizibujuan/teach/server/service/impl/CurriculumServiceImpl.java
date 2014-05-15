@@ -1,8 +1,12 @@
 package com.zizibujuan.teach.server.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.zizibujuan.cm.server.service.ApplicationPropertyService;
 import com.zizibujuan.teach.server.dao.CurriculumDao;
 import com.zizibujuan.teach.server.model.Curriculum;
 import com.zizibujuan.teach.server.service.CurriculumService;
@@ -15,12 +19,20 @@ import com.zizibujuan.teach.server.service.CurriculumService;
  */
 public class CurriculumServiceImpl implements CurriculumService {
 	private static final Logger logger = LoggerFactory.getLogger(CurriculumServiceImpl.class);
+	private static final String ALERT_LESSON_BEFORE_MINITES = "alert.minite.before.lesson";
 	
 	private CurriculumDao curriculumDao;
+	private ApplicationPropertyService applicationPropertyService;
 	
 	@Override
 	public Long add(Long userId, Curriculum curriculum) {
 		return curriculumDao.add(userId, curriculum);
+	}
+	
+	@Override
+	public List<Map<String, Object>> getIncomingEvents(Long userId) {
+		int beforeMinites = applicationPropertyService.getForInt(ALERT_LESSON_BEFORE_MINITES);
+		return curriculumDao.getIncomingEvents(userId, beforeMinites);
 	}
 
 	@Override
@@ -40,6 +52,19 @@ public class CurriculumServiceImpl implements CurriculumService {
 			this.curriculumDao = null;
 		}
 	}
+	
+	public void setApplicationPropertyService(ApplicationPropertyService applicationPropertyService) {
+		logger.info("注入ApplicationPropertyService");
+		this.applicationPropertyService = applicationPropertyService;
+	}
+
+	public void unsetApplicationPropertyService(ApplicationPropertyService applicationPropertyService) {
+		if (this.applicationPropertyService == applicationPropertyService) {
+			logger.info("注销ApplicationPropertyService");
+			this.applicationPropertyService = null;
+		}
+	}
+
 }
 
 // 注意，课程表只是课程表，不能约束实际的上课安排，只能起到指导作用。

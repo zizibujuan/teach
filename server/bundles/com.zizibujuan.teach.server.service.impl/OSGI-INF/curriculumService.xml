@@ -10,6 +10,14 @@
    		name="curriculumDao" 
    		policy="dynamic"/>
    
+   <reference 
+   		bind="setApplicationPropertyService" 
+   		unbind="unsetApplicationPropertyService" 
+   		cardinality="0..1" 
+   		interface="com.zizibujuan.cm.server.service.ApplicationPropertyService" 
+   		name="applicationPropertyService" 
+   		policy="dynamic"/>
+   		
    <service>
       <provide interface="com.zizibujuan.teach.server.service.CurriculumService"/>
    </service>

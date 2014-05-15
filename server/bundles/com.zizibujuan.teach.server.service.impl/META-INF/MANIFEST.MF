@@ -7,6 +7,7 @@ Bundle-Activator: com.zizibujuan.teach.server.service.impl.Activator
 Bundle-Vendor: zizibujuan.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.zizibujuan.cm.server.dao,
+ com.zizibujuan.cm.server.service,
  com.zizibujuan.drip.server.util,
  com.zizibujuan.server.git,
  com.zizibujuan.teach.server.dao,

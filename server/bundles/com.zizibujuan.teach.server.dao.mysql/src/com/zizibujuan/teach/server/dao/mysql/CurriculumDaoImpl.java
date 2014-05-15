@@ -3,6 +3,8 @@ package com.zizibujuan.teach.server.dao.mysql;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.Map;
 
 import com.zizibujuan.drip.server.util.dao.AbstractDao;
 import com.zizibujuan.drip.server.util.dao.DatabaseUtil;
@@ -44,5 +46,36 @@ public class CurriculumDaoImpl extends AbstractDao implements CurriculumDao {
 				ps.setLong(6, userId);
 			}
 		});
+	}
+	
+	private static final String SQL_LIST_INCOMING_EVENT = "SELECT "
+			+ "CM.CLASS_ID, "
+			+ "CM.MEMBER_TYPE \"classMemberType\", "
+			+ "C.START_TIME \"lessonStartTime\","
+			+ "C.END_TIME \"lessonEndTime\","
+			+ "now() \"currentTime\","
+			+ "C.LESSON_ID \"lessonId\","
+			+ "L.TITLE \"lessonName\","
+			+ "CA.COURSE_NAME \"courseName\" "
+			+ "FROM "
+			+ "DRIP_CLASS_MEMBER CM,"
+			+ "DRIP_CURRICULUM C,"
+			+ "DRIP_LESSON L,"
+			+ "DRIP_COURSE CA "
+			+ "WHERE "
+			+ "CM.USER_ID = ? AND "
+			+ "CM.CLASS_ID = C.CLASS_ID AND "
+			+ "(DATE_ADD(C.START_TIME, INTERVAL -? MINUTE) <= now() AND now() <= C.END_TIME) AND "
+			+ "C.LESSON_ID = L.DBID AND "
+			+ "L.COURSE_ID = CA.DBID";
+	@Override
+	public List<Map<String, Object>> getIncomingEvents(Long userId,
+			int beforeMinites) {
+		return DatabaseUtil.queryForList(
+			getDataSource(), 
+			SQL_LIST_INCOMING_EVENT, 
+			userId, 
+			beforeMinites
+		);
 	}
 }

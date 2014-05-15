@@ -2,6 +2,7 @@ package com.zizibujuan.teach.server.servlets;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -53,5 +54,21 @@ public class CurriculumServlet extends BaseServlet{
 		super.doPost(req, resp);
 	}
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		traceRequest(req);
+		IPath path = getPath(req);
+		if(path.segmentCount() == 0){
+			String type = req.getParameter("type");
+			if(type != null && type.equals("incoming")){
+				Long userId = ((UserInfo)UserSession.getUser(req)).getId();
+				List<Map<String, Object>> result = curriculumService.getIncomingEvents(userId);
+				ResponseUtil.toJSON(req, resp, result);
+				return;
+			}
+		}
+		super.doGet(req, resp);
+	}
 	
 }
