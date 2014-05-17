@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>黑板</title>
+
+<link type="text/css" rel="stylesheet" href="/dojo/resources/dojo.css" />
+<link type="text/css" rel="stylesheet" href="/dijit/themes/claro/claro.css" />
+<link type="text/css" rel="stylesheet" href="/fontawesome/css/font-awesome.css" />
+
+<script type="text/javascript" 
+	data-dojo-config="
+		async:true,
+		parseOnLoad:false,
+		isDebug:true" 
+	src="/dojo/dojo.js"></script>
+
+<script type="text/javascript">
+require(["useradmin/user",
+         "teach/rooms/Screen",
+         "dojo/domReady!"], function(
+        		 user,
+        		 Screen){
+	var screen = new Screen({
+	});
+	screen.placeAt("screenDiv");
+	screen.startup();
+});
+</script>	
+	
+</head>
+<body class="claro">
+<div>
+	<div id="screenDiv"></div>
+</div>
+</body>
+</html>
